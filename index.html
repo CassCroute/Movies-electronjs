@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <title>CassCroute V1</title>
+    <link href="CSS/styles.css" rel="stylesheet" />
+    <link rel="icon" href="IMG/CassCroute.ico" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+  </head>
+  <body id="pageCentre">
+    <div class="container">
+      <h1 class="titleClass">CassCroute</h1>
+      <div class="recherche">
+        <form role="form">
+            <div class="form-group">
+              <input type="input" class="form-control input-lg" id="txt-search" placeholder="Recherche un nouveau..." maxlength="57"><i class="fa fa-search" id="icons"></i>
+            </div>
+        </form>
+        <div id="filter-records"></div>
+      </div>
+    </div>
+    <div id="modeLecture">
+      <iframe 
+        src="https://uqload.com/embed-6q35y5hkbqno.html"
+        sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+        id='filecontainer'
+        frameborder=0 
+        marginwidth=0 
+        marginheight=0 
+        scrolling=no 
+        width=640 
+        height=360 
+        style="border-radius: 15px;"
+        allowfullscreen>
+      </iframe>
+      <div id="titreEtDescription">
+        <h5 id="titreVideoEnCours">
+          Toy Story 1
+        </h5>
+        <p id="descriptionEnCours">
+          Quand le jeune Andy quitte sa chambre, ses jouets se mettent à mener leur propre vie sous la houlette de son pantin préféré, Woody le cow‐boy. Andy ignore également que chaque anniversaire est une source d’angoisse pour ses jouets qui paniquent à l’idée d’être supplantés par un nouveau venu. Ce qui arrive quand Buzz l’éclair est offert à Andy. Cet intrépide aventurier de l’espace, venu d’une lointaine galaxie, va semer la zizanie dans ce petit monde et vivre avec Woody d’innombrables aventures aussi dangereuses que palpitantes.
+        </p>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/scripts.js"></script>
+  </body>
+</html>
