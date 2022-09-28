@@ -191,7 +191,7 @@ $('#txt-search').keyup(function(){
             imgObj.setAttribute('crossOrigin', '');
             getImageLightness(imgObj.src,function(brightness){
                   console.log(brightness);
-                  if (brightness < 127) {
+                  if (brightness < 170) {
                         $('.titleClass').css("color", "white");
                   } else {
                         $('.titleClass').css("color", "black");
