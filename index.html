@@ -6,9 +6,14 @@
     <title>CassCroute V1</title>
     <link href="CSS/styles.css" rel="stylesheet" />
     <link rel="icon" href="IMG/CassCroute.ico" />
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"  type='text/css'>
   </head>
   <body id="pageCentre">
+    <nav> 
+      <button class="minimize-btn btn" id="minimize-btn" title="Réduire"><i class="fa fa-window-minimize" id="icons-btn-min"></i></button>
+      <button class="maximize-btn btn" id="maximize-btn" title="Maximiser"><i class="fa fa-window-maximize" id="icons-btn-max"></i></button>
+      <button class="close-btn btn" id="close-btn" title="Fermer"><i class="fa fa-xmark" id="icons-btn-close"></i></button>
+    </nav>
     <div class="container">
       <h1 class="titleClass">CassCroute</h1>
       <div class="recherche">
@@ -43,7 +48,8 @@
         </p>
       </div>
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="JS/scripts.js"></script>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="JS/scripts.js"></script>
+    <script defer src="JS/renderer.js"></script>
   </body>
 </html>

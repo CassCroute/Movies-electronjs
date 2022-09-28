@@ -11,6 +11,7 @@
   "devDependencies": {
     "@check-light-or-dark/image": "^1.0.5",
     "electron": "^20.2.0",
-    "electron-packager": "^16.0.0"
+    "electron-packager": "^16.0.0",
+    "jquery": "^3.6.1"
   }
 }

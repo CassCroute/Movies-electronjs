@@ -154,3 +154,66 @@
   border-radius: 10px;
   border: 1px solid var(--my-color);
 }
+
+.drag {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+nav {
+  height: 27px;
+  width: 100vw;
+  left: 0;
+  background-color: rgba(200, 200, 200, 0.2);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  -webkit-app-region: drag;    /* Allow user to drag the window using this titlebar */
+  -webkit-user-select: none;   /* Prevent user from selecting things */
+  user-select: none;
+}
+
+#icons-btn-min,
+#icons-btn-max,
+#icons-btn-close {
+  top: 0;
+  margin-left: 20px;
+  font-size: 10px;
+  height: 15px;
+  margin-right: 20px;
+  padding-top: calc(15px - 7px);
+  color: white;
+}
+
+.btn {
+  top: 0;
+  z-index: 0;
+  border: 0.5px solid #fff;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.minimize-btn {
+  background-color: #000;
+}
+
+.maximize-btn {
+  background-color: #000;
+}
+
+.close-btn {
+  background-color: #f00;
+}
+
+.btn:hover {
+  background-color:rgb(17, 84, 151);
+}
+
+.close-btn:hover {
+  background-color:rgb(148, 0, 0);
+}
