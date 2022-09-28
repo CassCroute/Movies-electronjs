@@ -1,6 +1,6 @@
 # CassCrouteApp
   
-![CassCroutApp](.IMG/CassCrouteApp.png)  
+![CassCroutApp](https://github.com/CassCroute/En-attendant/blob/main/IMG/CassCrouteApp.png)  
   
 CassCroute $ npm i --save-dev  
 CassCroute $ npm run start    
