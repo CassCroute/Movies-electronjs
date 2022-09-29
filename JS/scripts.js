@@ -78,7 +78,7 @@ var film = [
             "id" : "14",
             "Titre" : "Star Wars : Episode I : La Menace fantôme",
             "TitreOriginal" : "Star Wars: Episode I – The Phantom Menace",
-            "Lien" : "https://uqload.com/embed-gv85blttit0v.html"
+            "Lien" : "https://uqload.org/embed-gv85blttit0v.html"
       },
       {
             "id" : "15",
@@ -90,13 +90,13 @@ var film = [
             "id" : "16",
             "Titre" : "Star Wars : Episode III : La Revanche des Sith",
             "TitreOriginal" : "Star Wars: Episode III – Revenge of the Sith",
-            "Lien" : "https://uqload.com/embed-0ljktzhh690z.html"
+            "Lien" : "https://uqload.org/embed-0ljktzhh690z.html"
       },
       {
             "id" : "17",
             "Titre" : "Star Wars : Episode IV : Un nouvel espoir (La Guerre des étoiles)",
             "TitreOriginal" : "Star Wars: Episode IV – A New Hope",
-            "Lien" : "https://uqload.com/embed-ktddysf9gwew.html"
+            "Lien" : "https://uqload.org/embed-ktddysf9gwew.html"
       },
       {
             "id" : "18",
@@ -108,25 +108,25 @@ var film = [
             "id" : "19",
             "Titre" : "Star Wars : Episode VI : Le Retour du Jedi",
             "TitreOriginal" : "Star Wars: Episode VI – Return of the Jedi",
-            "Lien" : "https://uqload.com/embed-evpygcm7kbmb.html"
+            "Lien" : "https://uqload.org/embed-evpygcm7kbmb.html"
       },
       {
             "id" : "20",
             "Titre" : "Star Wars : Episode VII : Le Réveil de la Force",
             "TitreOriginal" : "Star Wars: Episode VII – The Force Awakens",
-            "Lien" : "https://uqload.com/embed-gy87vyby414z.html"
+            "Lien" : "https://uqload.org/embed-gy87vyby414z.html"
       },
       {
             "id" : "21",
             "Titre" : "Star Wars : épisode VIII : Les Derniers Jedi",
             "TitreOriginal" : "Star Wars: Episode VIII – The Last Jedi",
-            "Lien" : "https://uqload.com/embed-vsmgq262kdbu.html"
+            "Lien" : "https://uqload.org/embed-vsmgq262kdbu.html"
       },
       {
             "id" : "22",
             "Titre" : "Star Wars : Episode IX : L'Ascension de Skywalker",
             "TitreOriginal" : "Star Wars: Episode IX – The Rise of Skywalker",
-            "Lien" : "https://uqload.com/embed-pn22t5pntxe5.html"
+            "Lien" : "https://uqload.org/embed-pn22t5pntxe5.html"
       }
 ];
 
