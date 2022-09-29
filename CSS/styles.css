@@ -47,6 +47,7 @@
   border: 3px solid #0F0E17;
   border-radius: 29px;
   padding-left: 10px;
+  -webkit-app-region: no-drag;
 }
 
 .form-control:focus {
@@ -67,6 +68,7 @@
   -moz-background-size: cover;    /* Mozilla*/
   -o-background-size: cover;      /* Opera*/
   background-size: cover;         /* Generic*/
+  -webkit-app-region: drag;
 }
 
 #filter-records {
@@ -80,6 +82,7 @@
   overflow: auto;
   overflow-x: hidden;
   max-height: 60vh;
+  -webkit-app-region: no-drag;
 }
 
 .infoMedia {
@@ -103,6 +106,10 @@
   margin-top: 80px;
 }
 
+iframe {
+  -webkit-app-region: no-drag;
+}
+
 #titreEtDescription {
   display: flex;
   flex-direction: column;
@@ -113,6 +120,7 @@
   background-color: #0F0E17;
   border:2px solid #0F0E17;
   border-radius: 10px;
+  -webkit-app-region: no-drag;
 }
 
 #titreVideoEnCours {
@@ -137,6 +145,7 @@
 ::-webkit-scrollbar {
   width: 20px;
   background: rgba(100, 100, 100, 0.8) !important;
+  -webkit-app-region: no-drag;
 }
 
 /* Track */
@@ -167,7 +176,6 @@ nav {
   height: 27px;
   width: 100vw;
   left: 0;
-  background-color: rgba(200, 200, 200, 0.2);
   position: fixed;
   top: 0;
   display: flex;
@@ -187,33 +195,50 @@ nav {
   height: 15px;
   margin-right: 20px;
   padding-top: calc(15px - 7px);
-  color: white;
+  color: black;
+  -webkit-app-region: no-drag;
 }
 
 .btn {
   top: 0;
   z-index: 0;
-  border: 0.5px solid #fff;
+  border: 0.5px solid  rgba(0, 0, 0, 0);;
   cursor: pointer;
   -webkit-app-region: no-drag;
 }
 
 .minimize-btn {
-  background-color: #000;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .maximize-btn {
-  background-color: #000;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .close-btn {
-  background-color: #f00;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn:hover {
-  background-color:rgb(17, 84, 151);
+  background-color:rgba(17, 84, 151, 0.8);
+  backdrop-filter: blur(2px);
 }
 
 .close-btn:hover {
-  background-color:rgb(148, 0, 0);
+  background-color:rgba(255, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+}
+
+#loadingGif {
+  width: 200px;
+  height: 200px;
+  margin-right: calc(50vw - 100px);
+  margin-left: calc(50vw - 100px);
+  margin-top: calc(50vh - 100px);
+}
+
+#loadingBackground {
+  background-color: #4dbafa;
+  overflow: hidden;
+  -webkit-app-region: drag;
 }

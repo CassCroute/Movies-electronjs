@@ -191,10 +191,16 @@ $('#txt-search').keyup(function(){
             imgObj.setAttribute('crossOrigin', '');
             getImageLightness(imgObj.src,function(brightness){
                   console.log(brightness);
-                  if (brightness < 170) {
+                  if (brightness < 110) {
                         $('.titleClass').css("color", "white");
+                        $('#icons-btn-min').css("color", "white");
+                        $('#icons-btn-max').css("color", "white");
+                        $('#icons-btn-close').css("color", "white");
                   } else {
                         $('.titleClass').css("color", "black");
+                        $('#icons-btn-min').css("color", "black");
+                        $('#icons-btn-max').css("color", "black");
+                        $('#icons-btn-close').css("color", "black");
                   }
             });
       });

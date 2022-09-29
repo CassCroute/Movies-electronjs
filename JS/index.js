@@ -5,8 +5,8 @@ const ipc = ipcMain
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 1080,
-    height: 607.5,
+    width: 220,
+    height: 220,
     icon: './IMG/CassCroute.ico',
     frame: false,
     autoHideMenuBar: true,
@@ -17,7 +17,15 @@ const createWindow = () => {
     }
   })
 
-  win.loadFile('./index.html')
+  win.loadFile('loading.html')
+
+  setTimeout(() => launchIndex(), 6000)
+
+  function launchIndex() {
+    win.loadFile('index.html')
+    win.setContentSize(1080, 608)
+  }
+
 
   ipc.on('minimizeApp', ()=>{
     win.minimize()
