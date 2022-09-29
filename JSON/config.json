@@ -1,0 +1,7 @@
+{
+    "dest": "dist/installers/",
+    "icon": "./IMG/CassCroute.ico",
+    "tags": [
+      "Film & Série"
+    ]
+  }

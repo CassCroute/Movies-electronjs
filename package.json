@@ -4,15 +4,19 @@
   "description": "Logiciel pour voir des films.",
   "main": "JS/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . casscroute --platform win32 --arch x64 --out dist/",
+    "setup": "electron-installer-windows --src dist/casscroute-win32-x64/ --config JSON/config.json"
   },
   "author": "CassCroute Team",
   "license": "ISC",
   "devDependencies": {
     "@check-light-or-dark/image": "^1.0.5",
-    "electron": "^20.2.0",
-    "electron-installer-windows": "^3.0.0",
-    "electron-packager": "^16.0.0",
+    "electron": "^20.3.0",
+    "electron-installer-windows": "*",
+    "electron-packager": "*",
+    "electron-prebuilt": "*",
+    "electron-winstaller": "^5.0.0",
     "jquery": "^3.6.1"
   }
 }
