@@ -186,9 +186,7 @@ nav {
   user-select: none;
 }
 
-#icons-btn-min,
-#icons-btn-max,
-#icons-btn-close {
+.btn {
   top: 0;
   margin-left: 20px;
   font-size: 10px;
@@ -196,16 +194,13 @@ nav {
   margin-right: 20px;
   padding-top: calc(15px - 7px);
   color: black;
-  -webkit-app-region: no-drag;
-}
-
-.btn {
-  top: 0;
   z-index: 0;
   border: 0.5px solid  rgba(0, 0, 0, 0);;
   cursor: pointer;
   -webkit-app-region: no-drag;
 }
+
+
 
 .minimize-btn {
   background-color: rgba(255, 255, 255, 0.1);
