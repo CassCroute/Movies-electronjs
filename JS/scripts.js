@@ -188,19 +188,7 @@ $('#txt-search').keyup(function(){
             var imgObj = new Image();
             imgObj.src = img + '?' + new Date().getTime();
             imgObj.setAttribute('crossOrigin', '');
-            getImageLightness(imgObj.src,function(brightness){
-                  if (brightness < 110) {
-                        $('.titleClass').css("color", "white");
-                        $('#icons-btn-min').css("color", "white");
-                        $('#icons-btn-max').css("color", "white");
-                        $('#icons-btn-close').css("color", "white");
-                  } else {
-                        $('.titleClass').css("color", "black");
-                        $('#icons-btn-min').css("color", "black");
-                        $('#icons-btn-max').css("color", "black");
-                        $('#icons-btn-close').css("color", "black");
-                  }
-            });
+            getImageLightness(imgObj.src);
       });
   }
 
@@ -222,7 +210,7 @@ $(document).on( "click", '#pageCentre', function() {
       $('.form-control').val("");
 });
 
-function getImageLightness(imageSrc,callback) {
+function getImageLightness(imageSrc) {
       var img = document.createElement("img");
       img.src = imageSrc + '?' + new Date().getTime();
       img.setAttribute('crossOrigin', '');
@@ -232,17 +220,17 @@ function getImageLightness(imageSrc,callback) {
       var colorSum = 0;
   
       img.onload = function() {
-          // create canvas
-          var canvas = document.createElement("canvas");
-          canvas.width = this.width;
-          canvas.height = this.height;
-  
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(this,0,0);
-  
-          var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-          var data = imageData.data;
-          var r,g,b,avg;
+            // create canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = this.width;
+            canvas.height = this.height;
+      
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(this,0,0);
+      
+            var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+            var data = imageData.data;
+            var r,g,b,avg;
   
             for(var x = 0, len = data.length; x < len; x+=4) {
                   r = data[x];
@@ -251,8 +239,14 @@ function getImageLightness(imageSrc,callback) {
                   avg = Math.floor((r+g+b)/3);
                   colorSum += avg;
             }
-          var brightness = Math.floor(colorSum / (this.width*this.height));
-          callback(brightness);
+            var brightness = Math.floor(colorSum / (this.width*this.height));
+            if (brightness < 110) {
+                  $('.titleClass').css("color", "white");
+                  $('.btn').css("color", "white");
+            } else {
+                  $('.titleClass').css("color", "black");
+                  $('.btn').css("color", "black");
+            }
       }
 }
 
@@ -261,16 +255,25 @@ var idLaunchMovie = Math.floor(Math.random() * (22 - 1 + 1) + 1);
 $(window).on( "load", InitVideo(idLaunchMovie) );
 
 
-function InitVideo(idLaunchMovie) {
+function InitVideo(idMovie) {
       $.each(film, function(key, val){
-            if (val.id = idLaunchMovie){
-                  $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + val.TitreOriginal + '&language=fr-FR', function(data) {
-                        $("#filecontainer").attr("src",val.Lien);
+            if (val.id == idMovie) {
+                  var titreOriginalFilm = val.TitreOriginal;
+                  var titreFilm = val.Titre;
+                  var lienFilm = val.Lien
+                  console.log(idMovie);
+                  console.log(val.id);
+                  console.log(titreOriginalFilm);
+                  console.log(titreFilm);
+                  console.log(lienFilm);
+                  $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(data) {
+                        $("#filecontainer").attr("src",lienFilm);
                         var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
                         var imgObj = new Image();
                         imgObj.crossOrigin = "Anonymous";
                         imgObj.src = img + "?not-from-cache-please";
-                        $('#titreVideoEnCours').html(val.Titre);
+                        $('#titreVideoEnCours').html(titreFilm);
+                        console.log(titreFilm);
                         $('#descriptionEnCours').html(data['results'][0]['overview']);
                         $('#descriptionEnCours').css('color', 'white')
                         $('#pageCentre').css('background','url(' + imgObj.src + ') no-repeat center center fixed')
@@ -279,19 +282,7 @@ function InitVideo(idLaunchMovie) {
                         $('#pageCentre').css('-o-background-size', 'cover');
                         $('#pageCentre').css('background-size', 'cover');
                         $('body').css('background-color', '');
-                        getImageLightness(imgObj.src,function(brightness){
-                              if (brightness < 110) {
-                                    $('.titleClass').css("color", "white");
-                                    $('#icons-btn-min').css("color", "white");
-                                    $('#icons-btn-max').css("color", "white");
-                                    $('#icons-btn-close').css("color", "white");
-                              } else {
-                                    $('.titleClass').css("color", "black");
-                                    $('#icons-btn-min').css("color", "black");
-                                    $('#icons-btn-max').css("color", "black");
-                                    $('#icons-btn-close').css("color", "black");
-                              }
-                        });
+                        getImageLightness(imgObj.src);
                   });
             }
       });
