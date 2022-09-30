@@ -207,19 +207,20 @@ $('#txt-search').keyup(function(){
   displayWindowSize();
   window.addEventListener("resize", displayWindowSize);
 
-  function displayWindowSize() {
+function displayWindowSize() {
       var w = 0.6 * document.documentElement.clientWidth;
       var h = 0.3375 * document.documentElement.clientWidth;
 
       $('#filecontainer').attr('width',w);
       $('#filecontainer').attr('height',h);
-  }
+}
 
-  $(window).click(function() {
+$(document).on( "click", '#pageCentre', function() {
+      console.log('click')
       $('#filter-records').html("");
       $('#filter-records').css('border', '');
       $('.form-control').val("");
-    });
+});
 
 function getImageLightness(imageSrc,callback) {
       var img = document.createElement("img");
@@ -269,15 +270,15 @@ function InitVideo(idLaunchMovie) {
                         var imgObj = new Image();
                         imgObj.crossOrigin = "Anonymous";
                         imgObj.src = img + "?not-from-cache-please";
+                        $('#titreVideoEnCours').html(val.Titre);
+                        $('#descriptionEnCours').html(data['results'][0]['overview']);
+                        $('#descriptionEnCours').css('color', 'white')
                         $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
-                        $('body').css('background-color', '');
                         $('#pageCentre').css('-webkit-background-size', 'cover');
                         $('#pageCentre').css('-moz-background-size', 'cover');
                         $('#pageCentre').css('-o-background-size', 'cover');
                         $('#pageCentre').css('background-size', 'cover');
-                        $('#titreVideoEnCours').html(val.Titre);
-                        $('#descriptionEnCours').html(data['results'][0]['overview']);
-                        $('#descriptionEnCours').css('color', 'white')
+                        $('body').css('background-color', '');
                         getImageLightness(imgObj.src,function(brightness){
                               if (brightness < 110) {
                                     $('.titleClass').css("color", "white");

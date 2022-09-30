@@ -214,15 +214,15 @@ nav {
 }
 
 .minimize-btn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(127, 127, 127, 0.3);
 }
 
 .maximize-btn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(127, 127, 127, 0.3);
 }
 
 .close-btn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(127, 127, 127, 0.3);
 }
 
 .btn:hover {
