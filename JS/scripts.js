@@ -273,7 +273,7 @@ function InitVideo(idLaunchMovie) {
                         $('#titreVideoEnCours').html(val.Titre);
                         $('#descriptionEnCours').html(data['results'][0]['overview']);
                         $('#descriptionEnCours').css('color', 'white')
-                        $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
+                        $('#pageCentre').css('background','url(' + imgObj.src + ') no-repeat center center fixed')
                         $('#pageCentre').css('-webkit-background-size', 'cover');
                         $('#pageCentre').css('-moz-background-size', 'cover');
                         $('#pageCentre').css('-o-background-size', 'cover');
