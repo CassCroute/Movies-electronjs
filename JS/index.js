@@ -17,6 +17,8 @@ const createWindow = () => {
     }
   })
 
+  win.setBackgroundColor('#202020')
+
   win.loadFile('loading.html')
   win.setResizable(false)
 
