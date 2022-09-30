@@ -204,7 +204,6 @@ function displayWindowSize() {
 }
 
 $(document).on( "click", '#pageCentre', function() {
-      console.log('click')
       $('#filter-records').html("");
       $('#filter-records').css('border', '');
       $('.form-control').val("");
@@ -261,11 +260,6 @@ function InitVideo(idMovie) {
                   var titreOriginalFilm = val.TitreOriginal;
                   var titreFilm = val.Titre;
                   var lienFilm = val.Lien
-                  console.log(idMovie);
-                  console.log(val.id);
-                  console.log(titreOriginalFilm);
-                  console.log(titreFilm);
-                  console.log(lienFilm);
                   $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(data) {
                         $("#filecontainer").attr("src",lienFilm);
                         var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
@@ -273,7 +267,6 @@ function InitVideo(idMovie) {
                         imgObj.crossOrigin = "Anonymous";
                         imgObj.src = img + "?not-from-cache-please";
                         $('#titreVideoEnCours').html(titreFilm);
-                        console.log(titreFilm);
                         $('#descriptionEnCours').html(data['results'][0]['overview']);
                         $('#descriptionEnCours').css('color', 'white')
                         $('#pageCentre').css('background','url(' + imgObj.src + ') no-repeat center center fixed')
