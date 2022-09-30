@@ -7,7 +7,7 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 220,
     height: 220,
-    icon: './IMG/CassCroute.ico',
+    icon: path.resolve(__dirname, '../IMG/CassCroute.ico'),
     frame: false,
     autoHideMenuBar: true,
     titleBarStyle: 'hidden',

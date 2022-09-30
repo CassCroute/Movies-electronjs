@@ -5,8 +5,8 @@
   "main": "JS/index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . casscroute --platform win32 --arch x64 --out dist/",
-    "setup": "electron-installer-windows --src dist/casscroute-win32-x64/ --config JSON/config.json"
+    "build": "electron-packager . casscroute --platform win32 --arch x64 --out dist/ --icon=./IMG/CassCroute.ico",
+    "setup": "node JS/build_installer.js"
   },
   "author": "CassCroute Team",
   "license": "ISC",
@@ -16,7 +16,8 @@
     "electron-installer-windows": "*",
     "electron-packager": "*",
     "electron-prebuilt": "*",
-    "electron-winstaller": "^5.0.0",
+    "electron-wix-msi": "^4.0.0",
+    "exe-icon-extractor": "^1.0.8",
     "jquery": "^3.6.1"
   }
 }
