@@ -82,7 +82,7 @@ var film = [
       },
       {
             "id" : "15",
-            "Titre" : "Star Wars : Episode II : L'Attaque des clones",
+            "Titre" : "Star Wars : Episode II : L`Attaque des clones",
             "TitreOriginal" : "Star Wars: Episode II – Attack of the Clones",
             "Lien" : "https://uqload.com/embed-sxlgywn4c4v2.html"
       },
@@ -100,8 +100,8 @@ var film = [
       },
       {
             "id" : "18",
-            "Titre" : "Star Wars : Episode V : l'empire contre attaque",
-            "TitreOriginal" : "	Star Wars : Episode V – The Empire Strikes Back",
+            "Titre" : "Star Wars : Episode V : L`empire contre attaque",
+            "TitreOriginal" : "Star Wars : Episode V – The Empire Strikes Back",
             "Lien" : "https://uqload.com/embed-zskmddcj83nw.html"
       },
       {
@@ -124,7 +124,7 @@ var film = [
       },
       {
             "id" : "22",
-            "Titre" : "Star Wars : Episode IX : L'Ascension de Skywalker",
+            "Titre" : "Star Wars : Episode IX : L`Ascension de Skywalker",
             "TitreOriginal" : "Star Wars: Episode IX – The Rise of Skywalker",
             "Lien" : "https://uqload.org/embed-pn22t5pntxe5.html"
       }
@@ -135,9 +135,6 @@ function poster(film, count) {
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['poster_path'];
             id='#' + count;
             $(id).attr('src',img);
-            var overview = data['results'][0]['overview'];
-            id='#overview' + count;
-            $(id).text(overview); 
       });
 }
 
@@ -154,11 +151,10 @@ $('#txt-search').keyup(function(){
       $.each(film, function(key, val){
           if ((val.Titre.search(regex) != -1)) { //} || (val.Lien.search(regex) != -1)) {
             output += '<div class="col-md-6 well">';
-            output += '<a class="infoMedia" onclick="MAJlienvideo(\'' + val.Lien + '\',\'' + val.TitreOriginal + '\',\'' + val.Titre + '\')" >'; 
-            output += '<br><div ><img class="img-responsive" id="' + count + '" src="" alt="'+ val.Titre +'" height="220px" /></div>';
+            output += '<a class="infoMedia" onclick="MAJlienvideo(\'' + val.Lien + '\',\'' + val.TitreOriginal + '\',\'' + val.Titre + '\')">'; 
+            output += '<br><div ><img class="img-responsive" id="' + count + '" src="" alt="'+ val.Titre +'" height="55px" /></div>';
             output += '<div class="titreDescription">';
             output += '<h5>' + val.Titre + '</h5>';
-            output += '<p id="overview' + count + '" ></p>';
             output += '</div>';
             output += '</a>';
             output += '</div>';
@@ -176,7 +172,7 @@ $('#txt-search').keyup(function(){
   });
 
   function MAJlienvideo(movieEmbed, film, titrefr) {
-      $('#filecontainer').attr('src',movieEmbed);
+      $("#filecontainer").attr("src",movieEmbed);
 
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
@@ -192,7 +188,6 @@ $('#txt-search').keyup(function(){
             imgObj.src = img + '?' + new Date().getTime();
             imgObj.setAttribute('crossOrigin', '');
             getImageLightness(imgObj.src,function(brightness){
-                  console.log(brightness);
                   if (brightness < 110) {
                         $('.titleClass').css("color", "white");
                         $('#icons-btn-min').css("color", "white");

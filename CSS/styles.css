@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&familyimg-responsive=Lato:wght@100;400&display=swap');
 
 * {
   font-family: 'Lato', sans-serif;
@@ -85,6 +85,7 @@
   overflow-x: hidden;
   max-height: 70vh;
   -webkit-app-region: no-drag;
+  cursor: pointer;
 }
 
 .infoMedia {
@@ -98,6 +99,7 @@
 .titreDescription {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 20px;
   margin-top: -20px;
   fill: white;
 }
@@ -186,6 +188,13 @@ nav {
   -webkit-app-region: drag;    /* Allow user to drag the window using this titlebar */
   -webkit-user-select: none;   /* Prevent user from selecting things */
   user-select: none;
+}
+
+.imgTitleBar {
+  display: absolute;
+  top: 0;
+  left: 0;
+  height: 30px
 }
 
 .btn {

@@ -30,6 +30,7 @@ const createWindow = () => {
     win.center()
   }
 
+  win.webContents.send('isMaximized')
 
   ipc.on('minimizeApp', ()=>{
     win.minimize()
