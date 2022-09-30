@@ -142,6 +142,7 @@ $('#txt-search').keyup(function(){
       var searchField = $(this).val();
       if(searchField === '')  {
           $('#filter-records').html('');
+          $('#filter-records').css('border', '');
           return;
       }
       
@@ -242,16 +243,57 @@ function getImageLightness(imageSrc,callback) {
           var data = imageData.data;
           var r,g,b,avg;
   
-          for(var x = 0, len = data.length; x < len; x+=4) {
-              r = data[x];
-              g = data[x+1];
-              b = data[x+2];
-  
-              avg = Math.floor((r+g+b)/3);
-              colorSum += avg;
-          }
-  
+            for(var x = 0, len = data.length; x < len; x+=4) {
+                  r = data[x];
+                  g = data[x+1];
+                  b = data[x+2];
+                  avg = Math.floor((r+g+b)/3);
+                  colorSum += avg;
+            }
           var brightness = Math.floor(colorSum / (this.width*this.height));
           callback(brightness);
       }
-  }
+}
+
+var idLaunchMovie = Math.floor(Math.random() * (22 - 1 + 1) + 1);
+
+$(window).on( "load", InitVideo(idLaunchMovie) );
+
+
+function InitVideo(idLaunchMovie) {
+      $.each(film, function(key, val){
+            if (val.id = idLaunchMovie){
+                  $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + val.TitreOriginal + '&language=fr-FR', function(data) {
+                        $("#filecontainer").attr("src",val.Lien);
+                        var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
+                        var imgObj = new Image();
+                        imgObj.crossOrigin = "Anonymous";
+                        imgObj.src = img + "?not-from-cache-please";
+                        $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
+                        $('body').css('background-color', '');
+                        $('#pageCentre').css('-webkit-background-size', 'cover');
+                        $('#pageCentre').css('-moz-background-size', 'cover');
+                        $('#pageCentre').css('-o-background-size', 'cover');
+                        $('#pageCentre').css('background-size', 'cover');
+                        $('#titreVideoEnCours').html(val.Titre);
+                        $('#descriptionEnCours').html(data['results'][0]['overview']);
+                        $('#descriptionEnCours').css('color', 'white')
+                        getImageLightness(imgObj.src,function(brightness){
+                              if (brightness < 110) {
+                                    $('.titleClass').css("color", "white");
+                                    $('.titleClass').css("text-shadow", "5px 5px 2px black");
+                                    $('#icons-btn-min').css("color", "white");
+                                    $('#icons-btn-max').css("color", "white");
+                                    $('#icons-btn-close').css("color", "white");
+                              } else {
+                                    $('.titleClass').css("color", "black");
+                                    $('.titleClass').css("text-shadow", "5px 5px 2px white");
+                                    $('#icons-btn-min').css("color", "black");
+                                    $('#icons-btn-max').css("color", "black");
+                                    $('#icons-btn-close').css("color", "black");
+                              }
+                        });
+                  });
+            }
+      });
+}
