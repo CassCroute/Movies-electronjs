@@ -26,7 +26,7 @@ body {
   font-size: 50px;
   line-height: 61px;
   color: #FFFFFE;
-  text-shadow: 5px 5px  2px #000;
+  text-shadow: 3px 3px 5px #888;
 }
 
 #searchresult {
@@ -210,7 +210,7 @@ nav {
   border: 0.5px solid  rgba(0, 0, 0, 0);;
   cursor: pointer;
   -webkit-app-region: no-drag;
-  text-shadow: 1px 1px 2px #000;
+  text-shadow: 1px 1px 2px #888;
 }
 
 .minimize-btn {

@@ -281,13 +281,11 @@ function InitVideo(idLaunchMovie) {
                         getImageLightness(imgObj.src,function(brightness){
                               if (brightness < 110) {
                                     $('.titleClass').css("color", "white");
-                                    $('.titleClass').css("text-shadow", "5px 5px 2px black");
                                     $('#icons-btn-min').css("color", "white");
                                     $('#icons-btn-max').css("color", "white");
                                     $('#icons-btn-close').css("color", "white");
                               } else {
                                     $('.titleClass').css("color", "black");
-                                    $('.titleClass').css("text-shadow", "5px 5px 2px white");
                                     $('#icons-btn-min').css("color", "black");
                                     $('#icons-btn-max').css("color", "black");
                                     $('#icons-btn-close').css("color", "black");
