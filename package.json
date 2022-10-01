@@ -5,7 +5,7 @@
   "main": "JS/index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . casscroute --platform win32 --arch x64 --out dist/ --icon=./IMG/CassCroute.ico",
+    "build": "electron-packager . casscroute --platform win32 --arch x64 --out DIST/ --icon=./IMG/CassCroute.ico",
     "setup": "node JS/build_installer.js"
   },
   "author": "CassCroute Team",

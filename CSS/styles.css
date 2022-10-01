@@ -237,6 +237,13 @@ nav {
   backdrop-filter: blur(2px);
 }
 
+.holds-the-iframe {
+  background:url('../IMG/blckscrn.png') center center no-repeat;
+  width: 640px; 
+  height: 360px; 
+  border-radius: 10px;
+}
+
 #loadingGif {
   width: 200px;
   height: 200px;
