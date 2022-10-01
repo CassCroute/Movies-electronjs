@@ -4,7 +4,7 @@
     
 installer la denière version de nodejs ici : [node.js](https://nodejs.org/fr/)    
     
-~ $ git clone git@github.com:CassCroute/En-attendant.git //récupérer les sources     
+~ $ git clone [git@github.com:CassCroute/En-attendant.git](git@github.com:CassCroute/En-attendant.git) //récupérer les sources     
 ~ $ cd CassCroute //se rendre dans le dossier de l'application    
 CassCroute $ npm i --save-dev //pour installer les dépendances    
 CassCroute $ npm run start //pour lancer l'app avec electron (sans installation)      
