@@ -172,15 +172,8 @@ $('#txt-search').keyup(function(){
         $('#filter-records').css('color', 'white')
   });
 
-function decodeHTMLEntities(text) {
-      return $("<textarea/>").html(text).text();
-}  
-
 function MAJlienvideo(movieEmbed, film, titrefr) {
       $("#filecontainer").attr("src",movieEmbed);
-
-      film = decodeHTMLEntities(film);
-      titrefr = decodeHTMLEntities(titrefr);
 
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
