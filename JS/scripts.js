@@ -82,7 +82,7 @@ var film = [
       },
       {
             "id" : "15",
-            "Titre" : "Star Wars : Episode II : L'Attaque des clones",
+            "Titre" : "Star Wars : Episode II : L&#39;Attaque des clones",
             "TitreOriginal" : "Star Wars: Episode II – Attack of the Clones",
             "Lien" : "https://uqload.com/embed-sxlgywn4c4v2.html"
       },
@@ -100,7 +100,7 @@ var film = [
       },
       {
             "id" : "18",
-            "Titre" : "Star Wars : Episode V : L'empire contre attaque",
+            "Titre" : "Star Wars : Episode V : L&#39;empire contre attaque",
             "TitreOriginal" : "Star Wars : Episode V – The Empire Strikes Back",
             "Lien" : "https://uqload.com/embed-zskmddcj83nw.html"
       },
@@ -124,7 +124,7 @@ var film = [
       },
       {
             "id" : "22",
-            "Titre" : "Star Wars : Episode IX : L'Ascension de Skywalker",
+            "Titre" : "Star Wars : Episode IX : L&#39;Ascension de Skywalker",
             "TitreOriginal" : "Star Wars: Episode IX – The Rise of Skywalker",
             "Lien" : "https://uqload.org/embed-pn22t5pntxe5.html"
       }
@@ -172,8 +172,15 @@ $('#txt-search').keyup(function(){
         $('#filter-records').css('color', 'white')
   });
 
-  function MAJlienvideo(movieEmbed, film, titrefr) {
+function decodeHTMLEntities(text) {
+      return $("<textarea/>").html(text).text();
+}  
+
+function MAJlienvideo(movieEmbed, film, titrefr) {
       $("#filecontainer").attr("src",movieEmbed);
+
+      film = decodeHTMLEntities(film);
+      titrefr = decodeHTMLEntities(titrefr);
 
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
