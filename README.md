@@ -4,7 +4,8 @@
   
 CassCroute $ npm i --save-dev    
 CassCroute $ npm run start      
-CassCroute $ npm install electron-packager --save-dev         
-CassCroute $ npm install --save-dev electron-installer-windows     
-CassCroute $ npm run build  //pour build l'application
-CassCroute $ npm run setup  //pour créer un setup windows
+   
+installer Wix Tools Set et l'extension pour votre version de Visual Studio (2019 ou 2022), plus d'info : https://ourcodeworld.com/articles/read/927/how-to-create-a-msi-installer-in-windows-for-an-electron-framework-application    
+    
+CassCroute $ npm run build  //pour build l'application    
+CassCroute $ npm run setup  //pour créer un setup windows    
