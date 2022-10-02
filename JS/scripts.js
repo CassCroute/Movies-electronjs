@@ -1,3 +1,5 @@
+const { data } = require("jquery");
+
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
 var film = [
       {
@@ -144,7 +146,9 @@ var film = [
 
 function poster(film, count) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
-            var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['poster_path'];
+            var indice = 0;
+            if(data['results'][0]['media_type'] == 'person') indice = 1;      
+            var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['poster_path'];
             id='#' + count;
             $(id).attr('src',img);
       });
@@ -157,45 +161,47 @@ $('#txt-search').keyup(function(){
           $('#filter-records').css('border', '');
           return;
       }
-      
-      var regex = new RegExp(searchField, "i");
       var output = '<div class="row">';
-      var count = 1;
-      $.each(film, function(key, val){
-          if ((val.Titre.search(regex) != -1)) { //} || (val.Lien.search(regex) != -1)) {
-            output += '<div class="col-md-6 well">';
-            output +=`<a class="infoMedia" onclick='MAJlienvideo("${val.Lien}","${val.TitreOriginal}","${val.Titre}")'>`; 
-            output += '<br><div ><img class="img-responsive" id="' + count + '" src="" alt="'+ val.Titre +'" height="55px" /></div>';
-            output += '<div class="titreDescription">';
-            output += '<h5>' + val.Titre + '</h5>';
-            output += '</div>';
-            output += '</a>';
-            output += '</div>';
-            poster(val.TitreOriginal, count)
-            if(count%2 == 0){
-              output += '</div><div class="row">'
+      $.post('http://127.0.0.1:5050/search', { name: searchField }, function( data ) {
+            for (var i = 0; i < data['result'].length; i++) {
+                  var titreOriginalFilm = data['result'][i]['originalTitle'];
+                  var titreFilm = data['result'][i]['title'];
+                  var lienFilm = data['result'][i]['link'];
+                  output += '<div class="col-md-6 well">';
+                  output +=`<a class="infoMedia" onclick='MAJlienvideo("${lienFilm}","${titreOriginalFilm}","${titreFilm}")'>`; 
+                  output += '<br><div ><img class="img-responsive" id="' + i + '" src="" alt="'+ titreFilm +'" height="55px" /></div>';
+                  output += '<div class="titreDescription">';
+                  output += '<h5>' + titreFilm + '</h5>';
+                  output += '</div>';
+                  output += '</a>';
+                  output += '</div>';
+                  poster(titreOriginalFilm, i)
+                  if(i%2 != 0){
+                    output += '</div><div class="row">'
+                  }
             }
-            count++;
-          }
-        });
-        output += '</div>';
-        $('#filter-records').html(output);
-        $('#filter-records').css('border', '2px solid black');
-        $('#filter-records').css('color', 'white')
-  });
+            output += '</div><div class="row">'
+            output += '</div>';
+            $('#filter-records').html(output);
+            $('#filter-records').css('border', '2px solid black');
+            $('#filter-records').css('color', 'white')
+      });
+});
 
 function MAJlienvideo(movieEmbed, film, titrefr) {
       $("#filecontainer").attr("src",movieEmbed);
 
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
-            var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
+            var indice = 0;
+            if(data['results'][0]['media_type'] == 'person') indice = 1;
+            var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
             $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
             $('#pageCentre').css('-webkit-background-size', 'cover');
             $('#pageCentre').css('-moz-background-size', 'cover');
             $('#pageCentre').css('-o-background-size', 'cover');
             $('#pageCentre').css('background-size', 'cover');
             $('#titreVideoEnCours').html(titrefr);
-            $('#descriptionEnCours').html(data['results'][0]['overview']);
+            $('#descriptionEnCours').html(data['results'][indice]['overview']);
             $('#descriptionEnCours').css('color', 'white')
             var imgObj = new Image();
             imgObj.src = img + '?' + new Date().getTime();
@@ -267,28 +273,28 @@ $(window).on( "load", InitVideo(idLaunchMovie) );
 
 
 function InitVideo(idMovie) {
-      $.each(film, function(key, val){
-            if (val.id == idMovie) {
-                  var titreOriginalFilm = val.TitreOriginal;
-                  var titreFilm = val.Titre;
-                  var lienFilm = val.Lien
-                  $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(data) {
-                        $("#filecontainer").attr("src",lienFilm);
-                        var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['backdrop_path'];
-                        var imgObj = new Image();
-                        imgObj.crossOrigin = "Anonymous";
-                        imgObj.src = img + "?not-from-cache-please";
-                        $('#titreVideoEnCours').html(titreFilm);
-                        $('#descriptionEnCours').html(data['results'][0]['overview']);
-                        $('#descriptionEnCours').css('color', 'white')
-                        $('#pageCentre').css('background','url(' + imgObj.src + ') no-repeat center center fixed')
-                        $('#pageCentre').css('-webkit-background-size', 'cover');
-                        $('#pageCentre').css('-moz-background-size', 'cover');
-                        $('#pageCentre').css('-o-background-size', 'cover');
-                        $('#pageCentre').css('background-size', 'cover');
-                        $('body').css('background-color', '');
-                        getImageLightness(imgObj.src);
-                  });
-            }
+      $.get('http://127.0.0.1:5050/getRandom', function( data ) {
+            var titreOriginalFilm = data['result']['originalTitle'];
+            var titreFilm = data['result']['title'];
+            var lienFilm = data['result']['link'];
+            $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(data) {
+                  $("#filecontainer").attr("src",lienFilm);
+                  var indice = 0;
+                  if(data['results'][0]['media_type'] == 'person') indice = 1;
+                  var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
+                  var imgObj = new Image();
+                  imgObj.crossOrigin = "Anonymous";
+                  imgObj.src = img + "?not-from-cache-please";
+                  $('#titreVideoEnCours').html(titreFilm);
+                  $('#descriptionEnCours').html(data['results'][indice]['overview']);
+                  $('#descriptionEnCours').css('color', 'white')
+                  $('#pageCentre').css('background','url(' + imgObj.src + ') no-repeat center center fixed')
+                  $('#pageCentre').css('-webkit-background-size', 'cover');
+                  $('#pageCentre').css('-moz-background-size', 'cover');
+                  $('#pageCentre').css('-o-background-size', 'cover');
+                  $('#pageCentre').css('background-size', 'cover');
+                  $('body').css('background-color', '');
+                  getImageLightness(imgObj.src);
+            });
       });
 }
