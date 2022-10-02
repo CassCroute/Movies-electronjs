@@ -62,6 +62,7 @@ body {
 
 #filecontainer {
   border-radius: 10px;
+  background:url('../IMG/blckscrn.png') center center no-repeat;
 }
 
 #filecontainer:focus {
@@ -235,13 +236,6 @@ nav {
 .close-btn:hover {
   background-color:rgba(255, 0, 0, 0.8);
   backdrop-filter: blur(2px);
-}
-
-.holds-the-iframe {
-  background:url('../IMG/blckscrn.png') center center no-repeat;
-  width: 640px; 
-  height: 360px; 
-  border-radius: 10px;
 }
 
 #loadingGif {
