@@ -1,148 +1,6 @@
 const { data } = require("jquery");
-
+const apiAdresse = 'http://127.0.0.1:5050/';
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
-var film = [
-      {
-            "id" : "1",
-            "Titre" : "Vendredi 13",
-            "TitreOriginal" : "Friday the 13th",
-            "Lien" : "https://uqload.org/embed-xkqywv19p2m2.html"
-      }, 
-      {
-            "id" : "2",
-            "Titre" : "Pacific Rim : Uprising",
-            "TitreOriginal" : "Pacific Rim : Uprising",
-            "Lien" : "https://uqload.org/embed-3w9vrevwu3y9.html",
-      },
-      {
-            "id" : "3",
-            "Titre" : "A star is born",
-            "TitreOriginal" : "A star is born",
-            "Lien" : "https://uqload.org/embed-7qm2fq16z5hd.html",
-      },
-      {
-            "id" : "4",
-            "Titre" : "Terminator",
-            "TitreOriginal" : "The Terminator",
-            "Lien" : "https://uqload.org/embed-4uk6w7gn8hwr.html",
-      },
-      {
-            "id" : "5",
-            "Titre" : "Terminator 2",
-            "TitreOriginal" : "Terminator 2",
-            "Lien" : "https://uqload.org/embed-zk5qbviyhfpo.html",
-      },      {
-            "id" : "6",
-            "Titre" : "Terminator 3",
-            "TitreOriginal" : "Terminator 3",
-            "Lien" : "https://uqload.org/embed-hwkyb6t39whm.html",
-      },      {
-            "id" : "7",
-            "Titre" : "Terminator 4",
-            "TitreOriginal" : "Terminator 4",
-            "Lien" : "https://uqload.org/embed-6f63g0tlxa3u.html",
-      },      {
-            "id" : "8",
-            "Titre" : "Terminator 5",
-            "TitreOriginal" : "Terminator Genisys",
-            "Lien" : "https://uqload.org/embed-qia7xmdlaoqq.html",
-      },      {
-            "id" : "9",
-            "Titre" : "Terminator 6",
-            "TitreOriginal" : "Terminator 6",
-            "Lien" : "https://uqload.org/embed-0zfy2wx50eny.html",
-      },
-      {
-            "id" : "10",
-            "Titre" : "Toy Story 1",
-            "TitreOriginal" : "Toy Story",
-            "Lien" : "https://uqload.com/embed-6q35y5hkbqno.html"
-      },
-      {
-            "id" : "11",
-            "Titre" : "Toy Story 2",
-            "TitreOriginal" : "Toy Story 2",
-            "Lien" : "https://uqload.com/embed-lcx1g8ck7twt.html"
-      },
-      {
-            "id" : "12",
-            "Titre" : "Toy Story 3",
-            "TitreOriginal" : "Toy Story 3",
-            "Lien" : "https://uqload.com/embed-w0kg39g52cnv.html"
-      },
-      {
-            "id" : "13",
-            "Titre" : "Toy Story 4",
-            "TitreOriginal" : "Toy Story 4",
-            "Lien" : "https://uqload.com/embed-m5ojnuecxzd4.html"
-      },
-      {
-            "id" : "14",
-            "Titre" : "Star Wars : Episode I : La Menace fantôme",
-            "TitreOriginal" : "Star Wars: Episode I – The Phantom Menace",
-            "Lien" : "https://uqload.org/embed-gv85blttit0v.html"
-      },
-      {
-            "id" : "15",
-            "Titre" : "Star Wars : Episode II : L&#39;Attaque des clones",
-            "TitreOriginal" : "Star Wars: Episode II – Attack of the Clones",
-            "Lien" : "https://uqload.com/embed-sxlgywn4c4v2.html"
-      },
-      {
-            "id" : "16",
-            "Titre" : "Star Wars : Episode III : La Revanche des Sith",
-            "TitreOriginal" : "Star Wars: Episode III – Revenge of the Sith",
-            "Lien" : "https://uqload.org/embed-0ljktzhh690z.html"
-      },
-      {
-            "id" : "17",
-            "Titre" : "Star Wars : Episode IV : Un nouvel espoir (La Guerre des étoiles)",
-            "TitreOriginal" : "Star Wars: Episode IV – A New Hope",
-            "Lien" : "https://uqload.org/embed-ktddysf9gwew.html"
-      },
-      {
-            "id" : "18",
-            "Titre" : "Star Wars : Episode V : L&#39;empire contre attaque",
-            "TitreOriginal" : "Star Wars : Episode V – The Empire Strikes Back",
-            "Lien" : "https://uqload.com/embed-zskmddcj83nw.html"
-      },
-      {
-            "id" : "19",
-            "Titre" : "Star Wars : Episode VI : Le Retour du Jedi",
-            "TitreOriginal" : "Star Wars: Episode VI – Return of the Jedi",
-            "Lien" : "https://uqload.org/embed-evpygcm7kbmb.html"
-      },
-      {
-            "id" : "20",
-            "Titre" : "Star Wars : Episode VII : Le Réveil de la Force",
-            "TitreOriginal" : "Star Wars: Episode VII – The Force Awakens",
-            "Lien" : "https://uqload.org/embed-gy87vyby414z.html"
-      },
-      {
-            "id" : "21",
-            "Titre" : "Star Wars : épisode VIII : Les Derniers Jedi",
-            "TitreOriginal" : "Star Wars: Episode VIII – The Last Jedi",
-            "Lien" : "https://uqload.org/embed-vsmgq262kdbu.html"
-      },
-      {
-            "id" : "22",
-            "Titre" : "Star Wars : Episode IX : L&#39;Ascension de Skywalker",
-            "TitreOriginal" : "Star Wars: Episode IX – The Rise of Skywalker",
-            "Lien" : "https://uqload.org/embed-pn22t5pntxe5.html"
-      },
-      {
-            "id" : "23",
-            "Titre" : "La Marie du Port de 1950",
-            "TitreOriginal" : "La Marie du Port",
-            "Lien" : "https://www.youtube.com/embed/Wc_MfiOehnc"
-      },
-      {
-            "id" : "24",
-            "Titre" : "Le Tonnerre De Dieu",
-            "TitreOriginal" : "Le Tonnerre De Dieu",
-            "Lien" : "https://archive.org/details/JeanGabinLeTonnerreDeDieuFilmEntier360p"
-      }
-];
 
 function poster(film, count) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
@@ -163,7 +21,7 @@ $('#txt-search').keyup(function(){
           return;
       }
       var output = '<div class="row">';
-      $.post('http://127.0.0.1:5050/search', { name: searchField }, function( data ) {
+      $.post(apiAdresse + 'search', { name: searchField }, function( data ) {
             for (var i = 0; i < data['result'].length; i++) {
                   var titreOriginalFilm = data['result'][i]['originalTitle'];
                   var titreFilm = data['result'][i]['title'];
@@ -274,7 +132,7 @@ $(window).on( "load", InitVideo(idLaunchMovie) );
 
 
 function InitVideo(idMovie) {
-      $.get('http://127.0.0.1:5050/getRandom', function( data ) {
+      $.get(apiAdresse + 'getRandom', function( data ) {
             var titreOriginalFilm = data['result']['originalTitle'];
             var titreFilm = data['result']['title'];
             var lienFilm = data['result']['link'];
