@@ -2,10 +2,10 @@ const { data } = require("jquery");
 const apiAdresse = 'http://127.0.0.1:5050/';
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
 
-function poster(film, count) {
+function poster(film, titreFilm, count) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var indice = 0;
-            if(data['results'][0]['media_type'] == 'person') indice = 1;      
+            if(data['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;      
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['poster_path'];
             id='#' + count;
             $(id).attr('src',img);
@@ -34,7 +34,7 @@ $('#txt-search').keyup(function(){
                   output += '</div>';
                   output += '</a>';
                   output += '</div>';
-                  poster(titreOriginalFilm, i)
+                  poster(titreOriginalFilm, titreFilm, i)
                   if(i%2 != 0){
                     output += '</div><div class="row">'
                   }
@@ -52,7 +52,7 @@ function MAJlienvideo(movieEmbed, film, titrefr) {
 
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var indice = 0;
-            if(data['results'][0]['media_type'] == 'person') indice = 1;
+            if(data['results'][0]['media_type'] == 'person' || titrefr == 'Aladdin disney' || titrefr == 'Hulk') indice = 1;
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
             $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
             $('#pageCentre').css('-webkit-background-size', 'cover');
@@ -126,12 +126,10 @@ function getImageLightness(imageSrc) {
       }
 }
 
-var idLaunchMovie = Math.floor(Math.random() * (22 - 1 + 1) + 1);
-
-$(window).on( "load", InitVideo(idLaunchMovie) );
+$(window).on( "load", InitVideo() );
 
 
-function InitVideo(idMovie) {
+function InitVideo() {
       $.get(apiAdresse + 'getRandom', function( data ) {
             var titreOriginalFilm = data['result']['originalTitle'];
             var titreFilm = data['result']['title'];
@@ -139,7 +137,7 @@ function InitVideo(idMovie) {
             $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(data) {
                   $("#filecontainer").attr("src",lienFilm);
                   var indice = 0;
-                  if(data['results'][0]['media_type'] == 'person') indice = 1;
+                  if(data['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
                   var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
                   var imgObj = new Image();
                   imgObj.crossOrigin = "Anonymous";
