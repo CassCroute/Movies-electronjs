@@ -156,6 +156,7 @@ function poster(film, count) {
 
 $('#txt-search').keyup(function(){
       var searchField = $(this).val();
+      searchField = searchField.replace("'","&#39;");
       if(searchField === '')  {
           $('#filter-records').html('');
           $('#filter-records').css('border', '');
