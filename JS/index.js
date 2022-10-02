@@ -3,6 +3,8 @@ const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron')
 const ipc = ipcMain
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 220,
