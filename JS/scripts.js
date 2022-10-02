@@ -6,6 +6,7 @@ function poster(film, titreFilm, count) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var indice = 0;
             if(data['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;      
+            if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['poster_path'];
             id='#' + count;
             $(id).attr('src',img);
@@ -53,6 +54,7 @@ function MAJlienvideo(movieEmbed, film, titrefr) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var indice = 0;
             if(data['results'][0]['media_type'] == 'person' || titrefr == 'Aladdin disney' || titrefr == 'Hulk') indice = 1;
+            if(titrefr == 'Vendredi 13 (2009)') indice = 2;
             var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
             $('#pageCentre').css('background','url(' + img + ') no-repeat center center fixed'); 
             $('#pageCentre').css('-webkit-background-size', 'cover');
@@ -138,6 +140,7 @@ function InitVideo() {
                   $("#filecontainer").attr("src",lienFilm);
                   var indice = 0;
                   if(data['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
+                  if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
                   var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['backdrop_path'];
                   var imgObj = new Image();
                   imgObj.crossOrigin = "Anonymous";
