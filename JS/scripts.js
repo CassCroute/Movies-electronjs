@@ -1,5 +1,5 @@
 const { data } = require("jquery");
-const apiAdresse = 'http://127.0.0.1:5050/';
+const apiAdresse = 'https://cc-movies-api.herokuapp.com/';
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
 
 function poster(film, titreFilm, count) {
