@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&familyimg-responsive=Lato:wght@100;400&display=swap');
+
+* {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+body {
+    background-color: #0F0E17;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  -webkit-app-region: no-drag;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+  opacity: 0.65;
+  border: 1px solid rgba(222, 222, 222, 0.8);
+  background: rgba(176, 176, 176, 0.8) !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(241, 241, 241, 0.8);
+  border-radius: 5px;
+  border: 1px solid var(--my-color);
+}
+
+
+header {
+    width: auto;
+    height: 100vw;
+    
+}
+
+
+#pageCentre {
+  background: linear-gradient(180.01deg, rgba(0, 0, 0, 0) 10.36%, #0F0E17 95.26%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 2, 2, 0.16) 100%), url(unknown.png) no-repeat center center fixed;
+    
+  filter: blur(2px);
+
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover;    /* Mozilla*/
+  -o-background-size: cover;      /* Opera*/
+  background-size: cover;         /* Generic*/
+    
+  }
+
+
+.group-name {
+    position: absolute;
+
+    color: white;
+    left: 90px;
+    top: 54px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 61px;
+    user-select: none;
+    
+}
+
+.recherche {
+    position: absolute;
+    top: 70px;
+    right: 50px;
+
+}
+
+.form-control {
+    display: flex;
+    align-items:flex-end;
+    width: 40vw;
+    height: 30px;
+    overflow: auto;
+    background: #FFFFFF;
+    border: 3px solid #0F0E17;
+    border-radius: 29px;
+    padding-left: 10px;
+    -webkit-app-region: no-drag;
+    text-indent: 15px;
+  }
+  
+.form-control:focus {
+    outline: 0;
+}
+
+#icons {
+    position: absolute;
+    display: block;
+    top: 11px;
+    left: calc(38vw - 1vw);
+  }
+
+.title {
+    position: absolute;
+    
+    width: 550px;
+    height: 315px;
+    left: 90px;
+    top: 150px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 85px;
+    color: #FFFFFF;
+    user-select: none;
+
+}
+
+.key-1 {
+    color: white;
+
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    left: 90px;
+    top: 352px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #487C9A;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.key-2 {
+    
+    position: absolute;
+    color: white;
+    width: 120px;
+    height: 35px;
+    left: 230px;
+    top: 352px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #161616;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.key-3 {
+    position: absolute;
+    color: white;
+    width: 120px;
+    height: 35px;
+    left: 90px;
+    top: 410px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #408765;
+    border-radius: 10px;
+    user-select: none;
+}
+
+nav {
+  height: 27px;
+  width: calc(100vw - 13px);
+  
+  left: 0;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  -webkit-app-region: drag;    /* Allow user to drag the window using this titlebar */
+  -webkit-user-select: none;   /* Prevent user from selecting things */
+  user-select: none;
+}
+
+.imgTitleBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 30px
+  }
+
+.btn {
+    top: 0;
+    font-size: 10px;
+    
+    height: 30px;
+    width: 60px;
+    padding-top: calc(15px - 7px);
+    color: black;
+    z-index: 0;
+    border: 0.5px solid  rgba(0, 0, 0, 0);;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+    text-shadow: 1px 1px 2px #888;
+  }
+  
+.minimize-btn {
+    background-color: rgba(127, 127, 127, 0.3);
+  }
+  
+.maximize-btn {
+    background-color: rgba(127, 127, 127, 0.3);
+  }
+  
+.close-btn {
+    background-color: rgba(127, 127, 127, 0.3);
+  }
+  
+.btn:hover {
+    background-color:rgba(17, 84, 151, 0.8);
+    backdrop-filter: blur(2px);
+  }
+  
+.close-btn:hover {
+    background-color:rgba(255, 0, 0, 0.8);
+    backdrop-filter: blur(2px);
+  }
+
+.container {
+  display: inline-flex;
+  flex-wrap: wrap; 
+  gap: 50px;
+  
+  justify-content: center;
+  
+  width: auto;
+  
+  font-size: 25px;
+  text-align: right;
+  
+}
+
+.container img{
+
+  
+  width: calc(100vw / 6.9);
+  height: calc(1.67 * 100vw / 6.9);
+
+  user-select: none;
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  
+
+  
+  background: linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(0, 0, 0, 0.8) 73.96%), url(image);
+  border-radius: 14px;
+}
