@@ -226,7 +226,8 @@ nav {
 .container {
   display: inline-flex;
   flex-wrap: wrap; 
-  gap: 50px;
+
+  gap: calc(100vw / 21);
   
   justify-content: center;
   
@@ -240,8 +241,8 @@ nav {
 .container img{
 
   
-  width: calc(100vw / 6.9);
-  height: calc(1.67 * 100vw / 6.9);
+  width: calc(100vw / 7);
+  height: calc(1.667 * 100vw / 7);
 
   user-select: none;
   pointer-events: none;
