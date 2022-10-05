@@ -27,7 +27,7 @@ const createWindow = () => {
   setTimeout(() => launchIndex(), 6000)
 
   function launchIndex() {
-    win.loadFile('index.html')
+    win.loadFile('ACCUEIL/index.html')
     win.setResizable(true)
     win.setContentSize(1080, 608)
     win.setMinimumSize(1080, 608)

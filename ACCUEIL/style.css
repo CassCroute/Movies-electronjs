@@ -118,14 +118,18 @@ header {
 }
 
 .key-1 {
+    font-family: Inter;
+    font-weight: 200;
     color: white;
-
     position: absolute;
     width: 120px;
     height: 35px;
     left: 90px;
     top: 352px;
     display: flex;
+
+    text-align: center;
+
     justify-content: center;
     align-items: center;
     background: #487C9A;
@@ -134,7 +138,8 @@ header {
 }
 
 .key-2 {
-    
+    font-family: Inter;
+    font-weight: 200;
     position: absolute;
     color: white;
     width: 120px;
@@ -142,6 +147,9 @@ header {
     left: 230px;
     top: 352px;
     display: flex;
+
+    text-align: center;
+
     justify-content: center;
     align-items: center;
     background: #161616;
@@ -150,6 +158,8 @@ header {
 }
 
 .key-3 {
+    font-family: Inter;
+    font-weight: 200;
     position: absolute;
     color: white;
     width: 120px;
@@ -157,6 +167,9 @@ header {
     left: 90px;
     top: 410px;
     display: flex;
+
+    text-align: center;
+
     justify-content: center;
     align-items: center;
     background: #408765;
