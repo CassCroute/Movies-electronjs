@@ -255,14 +255,16 @@ nav {
   width: calc(100vw / 7);
   height: calc(1.667 * 100vw / 7);
   
-  background: linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(banner.png);
+  background: linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(banner.png) no-repeat center center;
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover;    /* Mozilla*/
+  -o-background-size: cover;      /* Opera*/
+  background-size: cover;         /* Generic*/
 
   display: flex;
   justify-content: center;
 
-
   border-radius: 20px;
-
 
   user-select: none;
   pointer-events: none;
