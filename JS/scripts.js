@@ -204,7 +204,7 @@ function InitVideo() {
 function pingURL() {
   
       // The custom URL entered by user
-      var URL = apiAdresse;
+      var URL = apiAdresse + '/getRandom';
       var settings = {
       
         // Defines the configurations
