@@ -1,4 +1,3 @@
-const { data } = require("jquery");
 const apiAdresse = 'https://cc-movies-api.herokuapp.com/';
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
 
