@@ -1,48 +1,6 @@
 const apiAdresse = 'https://cc-movies-api.herokuapp.com/';
 var API_KEY = '7173b5f46e24129d10872840ca78f916';
 
-var categorieFilm = {
-      "28":	"Action",
-      "12":	"Aventure",
-      "16":	"Animation",
-      "35":	"Comedie",
-      "80":	"Polar",
-      "99":	"Documentaire",
-      "18":	"Drame",
-      "10751": "Famille",
-      "14":	"Fantastique",
-      "36":	"Histoire",
-      "27":	"Horreur",
-      "10402": "Musique",
-      "9648": "Mystère",
-      "10749": "Romance",
-      "878": "Science-Fiction",
-      "10770": "Téléfilm",
-      "53": "Thriller",
-      "10752": "Guerre",
-      "37": "Western"           
-}
-
-const categorieSerie = {
-      "10759": "Action et Aventure",
-      "16": "Animation",
-      "35": "Comédie",
-      "80": "Polar",
-      "99": "Documentaire",
-      "18": "Drame",
-      "10751": "Famille",
-      "10762": "Jeunesse",
-      "9648": "Mystère",
-      "10763": "Actualités",
-      "10764": "Réalité",
-      "10765": "Sci-Fi et Fantastique",
-      "10766": "Soap",
-      "10767": "Talk Show",
-      "10768": "Guerre et Politique",
-      "37": "Western"     
-}
-
-
 function poster(film, titreFilm, count) {
       $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
             var indice = 0;
@@ -199,44 +157,3 @@ function InitVideo() {
             });
       });
 }
-
-
-function pingURL() {
-  
-      // The custom URL entered by user
-      var URL = apiAdresse + '/getRandom';
-      var settings = {
-      
-        // Defines the configurations
-        // for the request
-        cache: false,
-        dataType: "jsonp",
-        async: true,
-        crossDomain: true,
-        url: URL,
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      
-        // Defines the response to be made
-        // for certain status codes
-        statusCode: {
-          200: function (response) {
-            console.log("Status 200: Page is up!");
-          },
-          400: function (response) {
-            console.log("Status 400: Page is down.");
-          },
-          0: function (response) {
-            console.log("Status 0: Page is down.");
-          },
-        },
-      };
-      
-      // Sends the request and observes the response
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
-    }
