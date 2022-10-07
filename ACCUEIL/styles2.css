@@ -323,16 +323,18 @@ nav {
   -o-background-size: cover;      /* Opera*/
   background-size: cover;         /* Generic*/
 
+  cursor: pointer;
+
   display: flex;
   justify-content: center;
 
   border-radius: 20px;
 
-  user-select: none;
+  /**user-select: none;
   pointer-events: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
-  -webkit-user-select: none;
+  -webkit-user-select: none;**/
 
   text-align: center;
 }

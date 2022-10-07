@@ -45,7 +45,8 @@ const categorieSerie = {
 $(window).on( "load", InitAccueil() );
 
 function InitAccueil() {
-    $.get(apiAdresse + 'getRandomNumber', { number: 21 }, function( data ) {
+    $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( data ) {
+        console.log(data);
         var titreOriginalFilm = data['result'][0]['originalTitle'];
         var titreFilm = data['result'][0]['title'];
         var lienFilm = data['result'][0]['link'];
@@ -105,8 +106,8 @@ function InitAccueil() {
                 });
             }
             if ( i == 19 ) clearInterval(intervalId);
-            i++
-        },500);
+            i++;
+        },400);
     });
 }
 
