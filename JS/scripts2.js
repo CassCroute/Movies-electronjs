@@ -86,7 +86,7 @@ function InitAccueil() {
 }
 
 var i = 0;
-var refreshIntervalId = setInterval(allPoster, 250);
+var refreshIntervalId = setInterval(allPoster, 500);
 
 function allPoster() {        
     $.get(apiAdresse + 'getRandom', function( data ) {
