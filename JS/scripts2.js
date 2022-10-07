@@ -83,32 +83,36 @@ function InitAccueil() {
                 getImageLightness(imgObj.src);
           });
     });
-    var i = 0;
-    $(".titreFilm").each(function() {        
-        $.get(apiAdresse + 'getRandom', function( data ) {
-            i++;
-            var titreOriginalFilm = data['result']['originalTitle'];
-            var titreFilm = data['result']['title'];
-            var lienFilm = data['result']['link'];
-            $.get('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataMovie) {
-                var indice = 0;
-                if(dataMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
-                if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-                console.log(dataMovie['results'][indice]['genre_ids'][0]);
-                var img = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][indice]['poster_path'];
-                var imgObj = new Image();
-                imgObj.crossOrigin = "Anonymous";
-                imgObj.src = img + "?not-from-cache-please-stp";
-                $('#titreFilm' + i).attr('onclick', lienFilm);
-                $('#titreFilm' + i).css('background', 'linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(' + imgObj.src + ') no-repeat center center');
-                $('#titreFilm' + i).css('-webkit-background-size', 'cover');
-                $('#titreFilm' + i).css('-moz-background-size', 'cover');
-                $('#titreFilm' + i).css('-o-background-size', 'cover');
-                $('#titreFilm' + i).css('background-size', 'cover');
-                $('#titreFilm' + i + ' h3').html(titreFilm);
-            });
-        }); 
-    })
+}
+
+var i = 0;
+var refreshIntervalId = setInterval(allPoster, 250);
+
+function allPoster() {        
+    $.get(apiAdresse + 'getRandom', function( data ) {
+        i++;
+        var titreOriginalFilm = data['result']['originalTitle'];
+        var titreFilm = data['result']['title'];
+        var lienFilm = data['result']['link'];
+        $.get('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataMovie) {
+            var indice = 0;
+            if(dataMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
+            if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
+            console.log(dataMovie['results'][indice]['genre_ids'][0]);
+            var img = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][indice]['poster_path'];
+            var imgObj = new Image();
+            imgObj.crossOrigin = "Anonymous";
+            imgObj.src = img + "?not-from-cache-please-stp";
+            $('#titreFilm' + i).attr('onclick', lienFilm);
+            $('#titreFilm' + i).css('background', 'linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(' + imgObj.src + ') no-repeat center center');
+            $('#titreFilm' + i).css('-webkit-background-size', 'cover');
+            $('#titreFilm' + i).css('-moz-background-size', 'cover');
+            $('#titreFilm' + i).css('-o-background-size', 'cover');
+            $('#titreFilm' + i).css('background-size', 'cover');
+            $('#titreFilm' + i + ' h3').html(titreFilm);
+        });
+        if (i == 20 ) clearInterval(refreshIntervalId);
+    });
 }
 
 function poster(film, titreFilm, count) {
