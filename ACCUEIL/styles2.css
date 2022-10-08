@@ -49,7 +49,6 @@ header {
   -moz-background-size: cover;    /* Mozilla*/
   -o-background-size: cover;      /* Opera*/
   background-size: cover;         /* Generic*/
-    
 }
 
 .group-name {
@@ -172,8 +171,7 @@ header {
     font-size: 30px;
     line-height: 85px;
     color: #FFFFFF;
-    user-select: none;
-
+    cursor: pointer;
 }
 
 #tags {

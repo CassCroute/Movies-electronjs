@@ -46,10 +46,11 @@ $(window).on( "load", InitAccueil() );
 
 function InitAccueil() {
     $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( data ) {
-        console.log(data);
         var titreOriginalFilm = data['result'][0]['originalTitle'];
         var titreFilm = data['result'][0]['title'];
         var lienFilm = data['result'][0]['link'];
+        var id = data['result'][0]['id'];
+        $('.title').addClass(id.toString());
         $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataDBMovie) {
             var indice = 0;
             if(dataDBMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
@@ -90,24 +91,25 @@ function InitAccueil() {
                 titreOriginalFilm = data['result'][i+1]['originalTitle'];
                 titreFilm = data['result'][i+1]['title'];
                 lienFilm = data['result'][i+1]['link'];
+                id = data['result'][i+1]['id'];
 
                 getMovieInfo(titreOriginalFilm, titreFilm, lienFilm).then(function(returndata) {
                     var img = returndata['poster'];
                     var imgObj = new Image();
                     imgObj.crossOrigin = "Anonymous";
                     imgObj.src = img + "?not-from-cache-please-stp";
-                    $('#titreFilm' + i).attr('onclick', lienFilm);
                     $('#titreFilm' + i).css('background', 'linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(' + imgObj.src + ') no-repeat center center');
                     $('#titreFilm' + i).css('-webkit-background-size', 'cover');
                     $('#titreFilm' + i).css('-moz-background-size', 'cover');
                     $('#titreFilm' + i).css('-o-background-size', 'cover');
                     $('#titreFilm' + i).css('background-size', 'cover');
                     $('#titreFilm' + i + ' h3').html(titreFilm);
+                    $('#titreFilm' + i).addClass(id.toString());
                 });
             }
             if ( i == 19 ) clearInterval(intervalId);
             i++;
-        },400);
+        },500);
     });
 }
 
@@ -147,14 +149,14 @@ $('#txt-search').keyup(function(){
           for (var i = 0; i < data['result'].length; i++) {
                 var titreOriginalFilm = data['result'][i]['originalTitle'];
                 var titreFilm = data['result'][i]['title'];
-                var lienFilm = data['result'][i]['link'];
+                var idVideo = data['result'][i]['id'];
                 output += '<div class="col-md-6 well">';
-                output +=`<a class="infoMedia" onclick='"${lienFilm}")'>`; 
+                output += `<div class="infoMedia ${idVideo}" id="infoMedia${i}" onclick="${infoMedia(idVideo.toString())}">`; 
                 output += '<br><div ><img class="img-responsive" id="' + i + '" src="" alt="'+ titreFilm +'" height="55px" /></div>';
                 output += '<div class="titreDescription">';
                 output += '<h5>' + titreFilm + '</h5>';
                 output += '</div>';
-                output += '</a>';
+                output += '</div>';
                 output += '</div>';
                 poster(titreOriginalFilm, titreFilm, i)
                 if(i%2 != 0){

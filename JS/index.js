@@ -59,6 +59,140 @@ const createWindow = () => {
   ipc.on('closeApp', ()=>{
     win.close()
   })
+
+  ipc.on('titreCouverture', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm1', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm2', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm3', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm4', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm5', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm6', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm7', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm8', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm9', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm10', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm11', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm12', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm13', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm14', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm15', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm16', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm17', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm18', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm19', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreFilm20', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('titreApp', ()=> {
+    win.loadFile('ACCUEIL/index.html')
+  })
+
+  ipc.on('infoMedia1', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('infoMedia2', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('infoMedia3', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('infoMedia4', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
+
+  ipc.on('infoMedia5', function (event, arg) {
+    var idVideo = arg['idVideo']
+    win.loadFile('index.html', {query: {"id": idVideo}})
+  })
 }
 
 app.whenReady().then(() => {

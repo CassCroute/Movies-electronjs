@@ -31,6 +31,10 @@ body {
   text-shadow: 3px 3px 5px #888;
 }
 
+#titreApp {
+  cursor: pointer;
+}
+
 #searchresult {
   width: 20vw;
   height: 30px;
@@ -75,7 +79,6 @@ body {
   -moz-background-size: cover;    /* Mozilla*/
   -o-background-size: cover;      /* Opera*/
   background-size: cover;         /* Generic*/
-  -webkit-app-region: drag;
 }
 
 #filter-records {
@@ -193,6 +196,7 @@ nav {
   -webkit-app-region: drag;    /* Allow user to drag the window using this titlebar */
   -webkit-user-select: none;   /* Prevent user from selecting things */
   user-select: none;
+  -webkit-app-region: drag;
 }
 
 .imgTitleBar {
