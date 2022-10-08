@@ -55,6 +55,10 @@ function InitAccueil() {
             var indice = 0;
             if(dataDBMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
             if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
+
+            $('#titreVideoEnCours').html(titreFilm);
+            $('#descriptionEnCours').html(dataDBMovie['results'][indice]['overview']);
+
             var lengthCategory = dataDBMovie['results'][indice]['genre_ids'].length;
 
             for ( var i = 1; i <= 3; i++ ) 
