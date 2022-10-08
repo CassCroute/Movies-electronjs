@@ -55,14 +55,15 @@ header {
     position: absolute;
 
     color: white;
-    left: 90px;
+    left: 50px;
     top: 58px;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 800;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 50px;
     line-height: 61px;
     color: #FFFFFE;
+    text-shadow: 3px 3px 5px #888;
     user-select: none;
     
 }
@@ -112,6 +113,7 @@ header {
 }
 
 #filter-records {
+  /*display: none;*/
   position: absolute;
   z-index: 2;
   background-color:rgba(43, 43, 43, 0.966);
@@ -161,6 +163,7 @@ header {
     flex-direction: column;
     gap: 50px;
     width: 550px;
+    height: 80vh;
 
     left: 90px;
     top: 90px;
@@ -168,10 +171,18 @@ header {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
-    font-size: 30px;
+    font-size: 40px;
     line-height: 85px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+#titrePrincipale {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 70vh;
+
 }
 
 #tags {
@@ -347,4 +358,35 @@ nav {
   font-weight: 100;
   font-size: calc(100vw / 65);
   justify-content: center;
+}
+
+
+#titreEtDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 25vw;
+  color: white;
+  max-height: calc(0.3375 * 100vw);
+  background-color: #0F0E17;
+  border:2px solid #0F0E17;
+  border-radius: 10px;
+  -webkit-app-region: no-drag;
+}
+
+#titreVideoEnCours {
+  width: 25vw;
+  text-align: center;
+  padding-top: 5vh;
+  margin-top: 0;
+  font-size: large;
+}
+
+#descriptionEnCours {
+  max-width: 25vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 1vw; 
+  overflow: auto;
+  overflow-x: hidden;
 }

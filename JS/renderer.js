@@ -173,47 +173,38 @@ if (titreApp !== null) {
     })
 }
 
-const infoMedia1 = document.getElementById('infoMedia0')
-const infoMedia2 = document.getElementById('infoMedia1')
-const infoMedia3 = document.getElementById('infoMedia2')
-const infoMedia4 = document.getElementById('infoMedia3')
-const infoMedia5 = document.getElementById('infoMedia4')
+document.getElementById('txt-search').onkeyup = function() {
+    var waitsearch = setInterval(function() { 
+        var infoMedia1 = document.getElementById('infoMedia0')
+        var infoMedia2 = document.getElementById('infoMedia1')
+        var infoMedia3 = document.getElementById('infoMedia2')
+        var infoMedia4 = document.getElementById('infoMedia3')
+        var infoMedia5 = document.getElementById('infoMedia4')
 
-function infoMedia(idVideo) {  
-    ipc.send('infoMedia', { idVideo: idVideo} )
-}
+        infoMedia1.addEventListener('click', ()=>{
+            var idVideo = infoMedia1.getAttribute('class').split(' ')[1]
+            ipc.send('infoMedia1', { idVideo: idVideo} )
+        })
 
-if (infoMedia1 != null) {
-    infoMedia1.addEventListener('click', ()=>{
-        var idVideo = infoMedia1.getAttribute('class').split(' ')[1]
-        ipc.send('infoMedia1', { idVideo: idVideo} )
-    })
-}
+        infoMedia2.addEventListener('click', ()=>{
+            var idVideo = infoMedia2.getAttribute('class').split(' ')[1]
+            ipc.send('infoMedia2', { idVideo: idVideo} )
+        })
 
-if (infoMedia2 != null) {
-    infoMedia2.addEventListener('click', ()=>{
-        var idVideo = infoMedia2.getAttribute('class').split(' ')[1]
-        ipc.send('infoMedia2', { idVideo: idVideo} )
-    })
-}
+        infoMedia3.addEventListener('click', ()=>{
+            var idVideo = infoMedia3.getAttribute('class').split(' ')[1]
+            ipc.send('infoMedia3', { idVideo: idVideo} )
+        })
 
-if (infoMedia3 != null) {
-    infoMedia3.addEventListener('click', ()=>{
-        var idVideo = infoMedia3.getAttribute('class').split(' ')[1]
-        ipc.send('infoMedia3', { idVideo: idVideo} )
-    })
-}
+        infoMedia4.addEventListener('click', ()=>{
+            var idVideo = infoMedia4.getAttribute('class').split(' ')[1]
+            ipc.send('infoMedia4', { idVideo: idVideo} )
+        })
 
-if (infoMedia4 != null) {
-    infoMedia4.addEventListener('click', ()=>{
-        var idVideo = infoMedia4.getAttribute('class').split(' ')[1]
-        ipc.send('infoMedia4', { idVideo: idVideo} )
-    })
-}
-
-if (infoMedia5 != null) {
-    infoMedia5.addEventListener('click', ()=>{
-        var idVideo = infoMedia5.getAttribute('class').split(' ')[1]
-        ipc.send('infoMedia5', { idVideo: idVideo} )
-    })
+        infoMedia5.addEventListener('click', ()=>{
+            var idVideo = infoMedia5.getAttribute('class').split(' ')[1]
+            ipc.send('infoMedia5', { idVideo: idVideo} )
+        })
+        clearInterval(waitsearch);
+    }, 500);
 }

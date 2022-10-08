@@ -55,7 +55,6 @@ function InitAccueil() {
             var indice = 0;
             if(dataDBMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
             if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-            $('#titrePrincipale').attr('href', lienFilm);
             var lengthCategory = dataDBMovie['results'][indice]['genre_ids'].length;
 
             for ( var i = 1; i <= 3; i++ ) 
@@ -109,7 +108,7 @@ function InitAccueil() {
             }
             if ( i == 19 ) clearInterval(intervalId);
             i++;
-        },500);
+        },400);
     });
 }
 
@@ -151,7 +150,7 @@ $('#txt-search').keyup(function(){
                 var titreFilm = data['result'][i]['title'];
                 var idVideo = data['result'][i]['id'];
                 output += '<div class="col-md-6 well">';
-                output += `<div class="infoMedia ${idVideo}" id="infoMedia${i}" onclick="${infoMedia(idVideo.toString())}">`; 
+                output += `<div class="infoMedia ${idVideo}" id="infoMedia${i}")'>`; 
                 output += '<br><div ><img class="img-responsive" id="' + i + '" src="" alt="'+ titreFilm +'" height="55px" /></div>';
                 output += '<div class="titreDescription">';
                 output += '<h5>' + titreFilm + '</h5>';
