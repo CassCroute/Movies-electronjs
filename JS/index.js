@@ -27,7 +27,7 @@ const createWindow = () => {
   setTimeout(() => launchIndex(), 6000)
 
   function launchIndex() {
-    win.loadFile('ACCUEIL/index.html')
+    win.loadFile('1-ACCUEIL/index.html')
     win.setResizable(true)
     win.setContentSize(1080, 608)
     win.setMinimumSize(1080, 608)
@@ -62,136 +62,136 @@ const createWindow = () => {
 
   ipc.on('titreCouverture', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm1', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm2', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm3', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm4', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm5', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm6', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm7', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm8', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm9', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm10', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm11', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm12', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm13', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm14', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm15', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm16', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm17', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm18', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm19', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreFilm20', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('titreApp', ()=> {
-    win.loadFile('ACCUEIL/index.html')
+    win.loadFile('1-ACCUEIL/index.html')
   })
 
   ipc.on('infoMedia1', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('infoMedia2', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('infoMedia3', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('infoMedia4', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 
   ipc.on('infoMedia5', function (event, arg) {
     var idVideo = arg['idVideo']
-    win.loadFile('index.html', {query: {"id": idVideo}})
+    win.loadFile('3-LECTEUR/index.html', {query: {"id": idVideo}})
   })
 }
 
