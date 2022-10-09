@@ -134,9 +134,7 @@ function InitVideo() {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const idVideo = urlParams.get('id');
-      console.log(idVideo);
       $.post(apiAdresse + 'getById', { id: idVideo }, function( data ) {
-            console.log(data)
             var titreOriginalFilm = data['result']['originalTitle'];
             var titreFilm = data['result']['title'];
             var lienFilm = data['result']['link'];
