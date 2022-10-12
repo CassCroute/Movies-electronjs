@@ -24,7 +24,11 @@ const createWindow = () => {
   win.loadFile('loading.html')
   win.setResizable(false)
 
-  setTimeout(() => launchIndex(), 6000)
+  //setTimeout(() => launchIndex(), 10000)
+
+  ipc.on('loaded', ()=>{
+    launchIndex()
+  })
 
   function launchIndex() {
     win.loadFile('1-ACCUEIL/index.html')
@@ -166,7 +170,8 @@ const createWindow = () => {
   })
 
   ipc.on('titreApp', ()=> {
-    win.loadFile('1-ACCUEIL/index.html')
+    app.quit();
+    app.relaunch();
   })
 
   ipc.on('infoMedia1', function (event, arg) {

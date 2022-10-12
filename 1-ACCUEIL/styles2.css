@@ -41,7 +41,7 @@ header {
 
 
 #pageCentre {
-  background: linear-gradient(180.01deg, rgba(0, 0, 0, 0) 10.36%, #0F0E17 95.26%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 2, 2, 0.16) 100%), url('../IMG/Background.png') no-repeat center center fixed;
+  background: linear-gradient(180.01deg, rgba(0, 0, 0, 0) 10.36%, #0F0E17 95.26%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 2, 2, 0.16) 100%), url('../3-LECTEUR/Background.png') no-repeat center center fixed;
    
   filter: blur(2px);
 

@@ -42,7 +42,7 @@ const categorieSerie = {
       "37": "Western"     
 }
 
-$(window).on( "load", InitAccueil() );
+/**$(window).on( "load", InitAccueil() );
 
 function InitAccueil() {
     $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( data ) {
@@ -114,7 +114,7 @@ function InitAccueil() {
             i++;
         },400);
     });
-}
+}**/
 
 function getMovieInfo(titreOriginalFilm, titreFilm, lienFilm){
     return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
@@ -174,7 +174,7 @@ $('#txt-search').keyup(function(){
     });
 });
 
-function getImageLightness(imageSrc) {
+/**function getImageLightness(imageSrc) {
     var img = document.createElement("img");
     img.src = imageSrc + '?' + new Date().getTime();
     img.setAttribute('crossOrigin', '');
@@ -214,7 +214,7 @@ function getImageLightness(imageSrc) {
                 $('.title h1').css("color", "black");
           }
     }
-}
+}**/
 
 $(document).on( "click", 'body', function() {
     $('#filter-records').html("");

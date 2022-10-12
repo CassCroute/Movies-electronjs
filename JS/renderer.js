@@ -1,6 +1,8 @@
 const { ipcRenderer } = require('electron')
 const ipc = ipcRenderer
 
+const fs = require('fs');
+
 
 const minimizeButton = document.getElementById("minimize-btn");
 const maxUnmaxButton = document.getElementById("maximize-btn");
@@ -163,6 +165,121 @@ if (titreFilm1 !== null) {
         var idVideo = titreFilm20.getAttribute('class').split(' ')[1]
         ipc.send('titreFilm20', { idVideo: idVideo} )
     })
+
+    $(window).on( "load", InitAccueil() );
+
+    function InitAccueil() {
+        fs.readFile( 'dataAPICassCroute.json', 'utf8', function (err,data) {
+            var dataAPIcc = JSON.parse(data);
+            console.log(dataAPIcc); 
+            var titreFilm = dataAPIcc[0]['title'];
+            var id = dataAPIcc[0]['id'];
+            $('.title').addClass(id.toString());
+            fs.readFile( 'dataAPIDBMovie.json', 'utf8', function (err,dataDBMovie) {
+                var dataAPImdb = JSON.parse(dataDBMovie);
+                console.log(dataAPImdb);
+   
+                $('#titreVideoEnCours').html(titreFilm);
+                $('#descriptionEnCours').html(dataAPImdb[0]['overview']);
+    
+                var lengthCategory = dataAPImdb[0]['genre_ids'].length;
+    
+                for ( var i = 1; i <= 3; i++ ) 
+                {
+                    if (i <= lengthCategory) {
+                        categorie = dataAPImdb[0]['genre_ids'][i - 1];
+                        var categoryFilm = categorieFilm[categorie];
+                        $('.key-' + i).html(categoryFilm);
+                    } else {
+                        $('.key-3').hide();
+                    }
+                    
+                }
+    
+                var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[0]['backdrop_path'];
+                var imgObj = new Image();
+                imgObj.crossOrigin = "Anonymous";
+                imgObj.src = img + "?not-from-cache-please";
+                $('.title h1').html(titreFilm);
+                $('#pageCentre').css('background', 'linear-gradient(180.01deg, rgba(0, 0, 0, 0) 10.36%, #0F0E17 95.26%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 2, 2, 0.16) 100%), url(' + imgObj.src + ') no-repeat center center fixed')
+                $('#pageCentre').css('filter', 'blur(2px)');
+                $('#pageCentre').css('-webkit-background-size', 'cover');
+                $('#pageCentre').css('-moz-background-size', 'cover');
+                $('#pageCentre').css('-o-background-size', 'cover');
+                $('#pageCentre').css('background-size', 'cover');
+                $('body').css('background-color', '');
+                getImageLightness(imgObj.src);
+                var i = 0;
+                var intervalId = setInterval(function () {
+                    if ( i >= 1 && i <= 20)
+                    {
+                        titreOriginalFilm = dataAPIcc[i]['originalTitle'];
+                        titreFilm = dataAPIcc[i]['title'];
+                        lienFilm = dataAPIcc[i]['link'];
+                        id = dataAPIcc[i]['id'];
+
+                        var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[i]['poster_path'];
+                        var imgObj = new Image();
+                        imgObj.crossOrigin = "Anonymous";
+                        imgObj.src = img + "?not-from-cache-please-stp";
+                        
+                        $('#titreFilm' + i).css('background', 'linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(' + imgObj.src + ') no-repeat center center');
+                        $('#titreFilm' + i).css('-webkit-background-size', 'cover');
+                        $('#titreFilm' + i).css('-moz-background-size', 'cover');
+                        $('#titreFilm' + i).css('-o-background-size', 'cover');
+                        $('#titreFilm' + i).css('background-size', 'cover');
+                        $('#titreFilm' + i + ' h3').html(titreFilm);
+                        $('#titreFilm' + i).addClass(id.toString());
+
+                    }
+                    if ( i == 21 ) clearInterval(intervalId);
+                    i++;
+                },100);
+            });
+        });
+    }
+
+    function getImageLightness(imageSrc) {
+        var img = document.createElement("img");
+        img.src = imageSrc + '?' + new Date().getTime();
+        img.setAttribute('crossOrigin', '');
+        img.style.display = "none";
+        document.body.appendChild(img);
+    
+        var colorSum = 0;
+    
+        img.onload = function() {
+              // create canvas
+              var canvas = document.createElement("canvas");
+              canvas.width = this.width;
+              canvas.height = this.height;
+        
+              var ctx = canvas.getContext("2d");
+              ctx.drawImage(this,0,0);
+        
+              var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+              var data = imageData.data;
+              var r,g,b,avg;
+    
+              for(var x = 0, len = data.length; x < len; x+=4) {
+                    r = data[x];
+                    g = data[x+1];
+                    b = data[x+2];
+                    avg = Math.floor((r+g+b)/3);
+                    colorSum += avg;
+              }
+              var brightness = Math.floor(colorSum / (this.width*this.height));
+              if (brightness < 110) {
+                    $('.group-name p').css("color", "white");
+                    $('.btn').css("color", "white");
+                    $('.title h1').css("color", "white");
+              } else {
+                    $('.group-name p').css("color", "black");
+                    $('.btn').css("color", "black");
+                    $('.title h1').css("color", "black");
+              }
+        }
+    }
 }
 
 const titreApp = document.getElementById('titreApp')
