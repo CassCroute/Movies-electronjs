@@ -2,7 +2,9 @@ const { ipcRenderer } = require('electron')
 const ipc = ipcRenderer
 
 const fs = require('fs');
+const path = require('path');
 
+const userDataPath = process.env.APPDATA;
 
 const minimizeButton = document.getElementById("minimize-btn");
 const maxUnmaxButton = document.getElementById("maximize-btn");
@@ -169,13 +171,15 @@ if (titreFilm1 !== null) {
     $(window).on( "load", InitAccueil() );
 
     function InitAccueil() {
-        fs.readFile( 'dataAPICassCroute.json', 'utf8', function (err,data) {
+        var pathAPIcc = path.join(userDataPath, 'dataAPICassCroute.json');
+        fs.readFile( pathAPIcc, 'utf8', function (err,data) {
             var dataAPIcc = JSON.parse(data);
             console.log(dataAPIcc); 
             var titreFilm = dataAPIcc[0]['title'];
             var id = dataAPIcc[0]['id'];
             $('.title').addClass(id.toString());
-            fs.readFile( 'dataAPIDBMovie.json', 'utf8', function (err,dataDBMovie) {
+            var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
+            fs.readFile( pathAPImdb, 'utf8', function (err,dataDBMovie) {
                 var dataAPImdb = JSON.parse(dataDBMovie);
                 console.log(dataAPImdb);
    

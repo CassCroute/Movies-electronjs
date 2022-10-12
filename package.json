@@ -19,6 +19,7 @@
     "electron-wix-msi": "^4.0.0",
     "exe-icon-extractor": "^1.0.8",
     "fs": "^0.0.1-security",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "path": "^0.12.7"
   }
 }

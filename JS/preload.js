@@ -4,11 +4,15 @@ var API_KEY = '7173b5f46e24129d10872840ca78f916';
 const { ipcRenderer } = require('electron')
 const ipc = ipcRenderer
 const fs = require('fs');
+const path = require('path');
+
+const userDataPath = process.env.APPDATA;
 
 $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCroute ) {
     console.log(dataAPICassCroute);
     var data = JSON.stringify(dataAPICassCroute['result']);
-    fs.writeFileSync('dataAPICassCroute.json', data);
+    var pathAPIcc = path.join(userDataPath, 'dataAPICassCroute.json');
+    fs.writeFileSync(pathAPIcc, data);
     var listeMovieDB = [];
     var i = -1;
         var intervalId = setInterval(function () {
@@ -26,7 +30,8 @@ $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCrou
                     if (listeMovieDB.length == 21) {
                         console.log(listeMovieDB);
                         data = JSON.stringify(listeMovieDB);
-                        fs.writeFileSync('dataAPIDBMovie.json', data);
+                        var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
+                        fs.writeFileSync(pathAPImdb, data);
                         ipc.send('loaded')
                     }
                 });
