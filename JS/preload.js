@@ -14,6 +14,7 @@ $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCrou
         var titreFilm = dataAPICassCroute['result'][i]['title'];
         $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataDBMovie) {
             var indice = 0;
+            var indicehere = 0;
             var lenghtDataDBMovie = dataDBMovie['results'].length;
             while (lenghtDataDBMovie > indicehere) {
                 var titreFind = dataDBMovie['results'][indicehere]['original_title'] == 'titreOriginalFilm'
