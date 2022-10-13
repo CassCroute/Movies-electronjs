@@ -6,6 +6,12 @@ const path = require('path');
 
 const userDataPath = process.env.APPDATA;
 
+if (process.platform == 'darwin') {
+    userDataPath = process.env.HOME + '/Library/Preferences/'
+} else if (process.platform == 'linux') {
+    userDataPath = process.env.HOME + '/.local/share/';
+}
+
 const minimizeButton = document.getElementById("minimize-btn");
 const maxUnmaxButton = document.getElementById("maximize-btn");
 const closeButton = document.getElementById("close-btn");

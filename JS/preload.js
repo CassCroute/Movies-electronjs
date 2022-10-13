@@ -8,6 +8,12 @@ const path = require('path');
 
 const userDataPath = process.env.APPDATA;
 
+if (process.platform == 'darwin') {
+    userDataPath = process.env.HOME + '/Library/Preferences/'
+} else if (process.platform == 'linux') {
+    userDataPath = process.env.HOME + '/.local/share/';
+}
+
 $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCroute ) {
     console.log(dataAPICassCroute);
     var data = JSON.stringify(dataAPICassCroute['result']);
