@@ -42,80 +42,6 @@ const categorieSerie = {
       "37": "Western"     
 }
 
-/**$(window).on( "load", InitAccueil() );
-
-function InitAccueil() {
-    $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( data ) {
-        var titreOriginalFilm = data['result'][0]['originalTitle'];
-        var titreFilm = data['result'][0]['title'];
-        var lienFilm = data['result'][0]['link'];
-        var id = data['result'][0]['id'];
-        $('.title').addClass(id.toString());
-        $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataDBMovie) {
-            var indice = 0;
-            if(dataDBMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
-            if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-
-            $('#titreVideoEnCours').html(titreFilm);
-            $('#descriptionEnCours').html(dataDBMovie['results'][indice]['overview']);
-
-            var lengthCategory = dataDBMovie['results'][indice]['genre_ids'].length;
-
-            for ( var i = 1; i <= 3; i++ ) 
-            {
-                if (i <= lengthCategory) {
-                    categorie = dataDBMovie['results'][indice]['genre_ids'][i - 1];
-                    var categoryFilm = categorieFilm[categorie];
-                    $('.key-' + i).html(categoryFilm);
-                } else {
-                    $('.key-3').hide();
-                }
-                
-            }
-
-            var img = 'https://image.tmdb.org/t/p/original' + dataDBMovie['results'][indice]['backdrop_path'];
-            var imgObj = new Image();
-            imgObj.crossOrigin = "Anonymous";
-            imgObj.src = img + "?not-from-cache-please";
-            $('.title h1').html(titreFilm);
-            $('#pageCentre').css('background', 'linear-gradient(180.01deg, rgba(0, 0, 0, 0) 10.36%, #0F0E17 95.26%), linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 2, 2, 0.16) 100%), url(' + imgObj.src + ') no-repeat center center fixed')
-            $('#pageCentre').css('filter', 'blur(2px)');
-            $('#pageCentre').css('-webkit-background-size', 'cover');
-            $('#pageCentre').css('-moz-background-size', 'cover');
-            $('#pageCentre').css('-o-background-size', 'cover');
-            $('#pageCentre').css('background-size', 'cover');
-            $('body').css('background-color', '');
-            getImageLightness(imgObj.src);
-        });
-        var i = -1;
-        var intervalId = setInterval(function () {
-            if ( i >= 0 )
-            {
-                titreOriginalFilm = data['result'][i+1]['originalTitle'];
-                titreFilm = data['result'][i+1]['title'];
-                lienFilm = data['result'][i+1]['link'];
-                id = data['result'][i+1]['id'];
-
-                getMovieInfo(titreOriginalFilm, titreFilm, lienFilm).then(function(returndata) {
-                    var img = returndata['poster'];
-                    var imgObj = new Image();
-                    imgObj.crossOrigin = "Anonymous";
-                    imgObj.src = img + "?not-from-cache-please-stp";
-                    $('#titreFilm' + i).css('background', 'linear-gradient(179.98deg, rgba(0, 0, 0, 0) 45.59%, rgba(20, 20, 20, 0.8) 73.96%), url(' + imgObj.src + ') no-repeat center center');
-                    $('#titreFilm' + i).css('-webkit-background-size', 'cover');
-                    $('#titreFilm' + i).css('-moz-background-size', 'cover');
-                    $('#titreFilm' + i).css('-o-background-size', 'cover');
-                    $('#titreFilm' + i).css('background-size', 'cover');
-                    $('#titreFilm' + i + ' h3').html(titreFilm);
-                    $('#titreFilm' + i).addClass(id.toString());
-                });
-            }
-            if ( i == 19 ) clearInterval(intervalId);
-            i++;
-        },400);
-    });
-}**/
-
 function getMovieInfo(titreOriginalFilm, titreFilm, lienFilm){
     return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
         var indice = 0;
@@ -173,48 +99,6 @@ $('#txt-search').keyup(function(){
           $('#filter-records').css('color', 'white')
     });
 });
-
-/**function getImageLightness(imageSrc) {
-    var img = document.createElement("img");
-    img.src = imageSrc + '?' + new Date().getTime();
-    img.setAttribute('crossOrigin', '');
-    img.style.display = "none";
-    document.body.appendChild(img);
-
-    var colorSum = 0;
-
-    img.onload = function() {
-          // create canvas
-          var canvas = document.createElement("canvas");
-          canvas.width = this.width;
-          canvas.height = this.height;
-    
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(this,0,0);
-    
-          var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-          var data = imageData.data;
-          var r,g,b,avg;
-
-          for(var x = 0, len = data.length; x < len; x+=4) {
-                r = data[x];
-                g = data[x+1];
-                b = data[x+2];
-                avg = Math.floor((r+g+b)/3);
-                colorSum += avg;
-          }
-          var brightness = Math.floor(colorSum / (this.width*this.height));
-          if (brightness < 110) {
-                $('.group-name p').css("color", "white");
-                $('.btn').css("color", "white");
-                $('.title h1').css("color", "white");
-          } else {
-                $('.group-name p').css("color", "black");
-                $('.btn').css("color", "black");
-                $('.title h1').css("color", "black");
-          }
-    }
-}**/
 
 $(document).on( "click", 'body', function() {
     $('#filter-records').html("");

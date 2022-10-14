@@ -8,7 +8,7 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 220,
-    height: 220,
+    height: 270,
     icon: path.resolve(__dirname, '../IMG/CassCroute.ico'),
     frame: false,
     autoHideMenuBar: true,

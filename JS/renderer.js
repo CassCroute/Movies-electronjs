@@ -27,12 +27,10 @@ maxUnmaxButton.addEventListener('click', ()=>{
 
 function changeMaxResBtn(isMaximizedApp){
     if(isMaximizedApp){
-        console.log('is maximized')
         iconMax.classList.remove("fa-window-maximize");
         iconMax.classList.add("fa-window-restore");
         maxUnmaxButton.title = 'Restaurer'
     } else {
-        console.log('is restored')
         iconMax.classList.add("fa-window-maximize");
         iconMax.classList.remove("fa-window-restore");
         maxUnmaxButton.title = 'Maximiser'
@@ -180,14 +178,12 @@ if (titreFilm1 !== null) {
         var pathAPIcc = path.join(userDataPath, 'dataAPICassCroute.json');
         fs.readFile( pathAPIcc, 'utf8', function (err,data) {
             var dataAPIcc = JSON.parse(data);
-            console.log(dataAPIcc); 
             var titreFilm = dataAPIcc[0]['title'];
             var id = dataAPIcc[0]['id'];
             $('.title').addClass(id.toString());
             var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
             fs.readFile( pathAPImdb, 'utf8', function (err,dataDBMovie) {
                 var dataAPImdb = JSON.parse(dataDBMovie);
-                console.log(dataAPImdb);
    
                 $('#titreVideoEnCours').html(titreFilm);
                 $('#descriptionEnCours').html(dataAPImdb[0]['overview']);

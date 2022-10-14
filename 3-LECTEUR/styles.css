@@ -244,15 +244,26 @@ nav {
 }
 
 #loadingGif {
+  position: absolute;
   width: 200px;
   height: 200px;
   margin-right: calc(50vw - 100px);
   margin-left: calc(50vw - 100px);
-  margin-top: calc(50vh - 100px);
+  top: 10px;
 }
 
 #loadingBackground {
   background-color: #202020;
   overflow: hidden;
   -webkit-app-region: drag;
+}
+
+#etat {
+  position: absolute;
+  font-weight: 900;
+  color: red;
+  bottom: 0px;
+  text-align: center;
+  left: -1px;
+  width:100vw;
 }
