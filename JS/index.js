@@ -1,3 +1,7 @@
+require('ts-node').register();
+require('./index.ts');
+
+/* 
 const path = require('path');
 
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -203,3 +207,4 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow()
 })
+*/
