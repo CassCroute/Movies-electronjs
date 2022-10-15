@@ -3,22 +3,12 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 const ipc = ipcMain
 
 import fetch from 'cross-fetch';
-import { readFileSync, writeFileSync } from 'fs';
 
 import path from 'path';
 
 import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
-
-function getUrlToLoad(): string {
-  let url = 'https://google.com';
-  if (process.argv[process.argv.length - 1].endsWith('.js') === false) {
-    url = process.argv[process.argv.length - 1];
-  }
-
-  return url;
-}
 
 async function createWindow() {
     const win = new BrowserWindow({
