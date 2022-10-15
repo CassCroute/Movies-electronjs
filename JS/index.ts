@@ -2,11 +2,11 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 
 const ipc = ipcMain
 
-import fetch from 'cross-fetch';
+import fs from 'fs'; // used for caching
 
 import path from 'path';
 
-import { ElectronBlocker } from '@cliqz/adblocker-electron';
+import { ElectronBlocker } from '../node_modules/@cliqz/adblocker-electron';
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
@@ -24,7 +24,7 @@ async function createWindow() {
         }
   });
 
-  const blocker = await ElectronBlocker.fromPrebuiltAdsAndTracking(fetch); // ads and tracking
+  const blocker = ElectronBlocker.parse(fs.readFileSync(path.resolve(__dirname, '../DATA/easylist.txt'), 'utf-8')); 
 
   blocker.enableBlockingInSession(win.webContents.session);
 
