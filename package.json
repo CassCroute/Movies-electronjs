@@ -1,6 +1,6 @@
 {
   "name": "casscroute",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Logiciel pour voir des films.",
   "main": "JS/index.js",
   "scripts": {
@@ -52,7 +52,7 @@
       "publishers": [
         {
           "name": "@electron-forge/publisher-github",
-          "config": {              
+          "config": {
             "github_repository.owner": "CassCroute",
             "github_repository.name": "Movies-electronjs",
             "repository": {
