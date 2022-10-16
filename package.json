@@ -56,8 +56,8 @@
             "github_repository.owner": "CassCroute",
             "github_repository.name": "Movies-electronjs",
             "repository": {
-              "github_repository.owner": "CassCroute",
-              "github_repository.name": "Movies-electronjs",
+              "owner": "CassCroute",
+              "name": "Movies-electronjs",
               "options": {
                 "protocol": "https",
                 "host": "api.github.com"
