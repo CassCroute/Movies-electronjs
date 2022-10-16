@@ -35,7 +35,7 @@
           "config": {
             "language": "1036",
             "manufacturer": "CassCoute Team",
-            "arch" : "x64",
+            "arch": "x64",
             "loadingGif": "IMG/CassCroute.gif",
             "setupIcon": "IMG/CassCroute.ico",
             "shortName": "CassCroute",
@@ -126,7 +126,6 @@
     "cross-fetch": "^3.1.5",
     "electron": "^21.1.1",
     "electron-forge": "^5.2.4",
-    "exe-icon-extractor": "^1.0.8",
     "fs": "^0.0.1-security",
     "jquery": "^3.6.1",
     "path": "^0.12.7",
