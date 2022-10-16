@@ -1,6 +1,6 @@
 {
   "name": "casscroute",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Logiciel pour voir des films.",
   "main": "JS/index.js",
   "scripts": {
@@ -31,7 +31,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "CassCroute App"
+            "name": "CassCroute.App"
           }
         },
         {
@@ -55,7 +55,7 @@
           "config": {
             "repository": {
               "owner": "CassCroute Team",
-              "name": "CassCroute App",
+              "name": "CassCroute.App",
               "draft": false
             }
           }
