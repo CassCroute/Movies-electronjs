@@ -6,7 +6,7 @@ import fs from 'fs'; // used for caching
 
 import path from 'path';
 
-import { ElectronBlocker } from '../node_modules/@cliqz/adblocker-electron';
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
