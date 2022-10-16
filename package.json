@@ -52,10 +52,12 @@
       "publishers": [
         {
           "name": "@electron-forge/publisher-github",
-          "config": {
-            "github_repository": {
-              "owner": "CassCroute",
-              "name": "Movies-electronjs",
+          "config": {              
+            "github_repository.owner": "CassCroute",
+            "github_repository.name": "Movies-electronjs",
+            "repository": {
+              "github_repository.owner": "CassCroute",
+              "github_repository.name": "Movies-electronjs",
               "options": {
                 "protocol": "https",
                 "host": "api.github.com"
