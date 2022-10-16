@@ -54,8 +54,12 @@
           "name": "@electron-forge/publisher-github",
           "config": {
             "repository": {
-              "owner": "CassCroute Team",
+              "owner": "CassCroute",
               "name": "CassCroute.App",
+              "options": {
+                "protocol": "https",
+                "host": "api.github.com"
+              },
               "draft": false
             }
           }
