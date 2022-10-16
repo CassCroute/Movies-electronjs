@@ -1,6 +1,6 @@
 {
   "name": "casscroute",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Logiciel pour voir des films.",
   "main": "JS/index.js",
   "scripts": {
