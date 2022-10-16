@@ -55,7 +55,7 @@
           "config": {
             "github_repository": {
               "owner": "CassCroute",
-              "name": "CassCroute.App",
+              "name": "Movies-electronjs",
               "options": {
                 "protocol": "https",
                 "host": "api.github.com"
