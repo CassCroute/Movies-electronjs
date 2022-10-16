@@ -53,7 +53,7 @@
         {
           "name": "@electron-forge/publisher-github",
           "config": {
-            "repository": {
+            "github_repository": {
               "owner": "CassCroute",
               "name": "CassCroute.App",
               "options": {
