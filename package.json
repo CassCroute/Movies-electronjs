@@ -14,13 +14,15 @@
   "license": "ISC",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "IMG/CassCroute.ico"
+      },
       "make_targets": {
         "win32": [
-          "squirrel"
+          "wix"
         ],
         "darwin": [
-          "zip"
+          "dmg"
         ],
         "linux": [
           "deb",
@@ -29,24 +31,51 @@
       },
       "makers": [
         {
-          "name": "@electron-forge/maker-squirrel",
+          "name": "@electron-forge/maker-wix",
           "config": {
-            "name": "CassCroute.App"
+            "language": "1036",
+            "manufacturer": "CassCoute Team",
+            "arch" : "x64",
+            "loadingGif": "IMG/CassCroute.gif",
+            "setupIcon": "IMG/CassCroute.ico",
+            "shortName": "CassCroute",
+            "shortcutFolderName": "CassCroute",
+            "shortcutName": "CassCroute",
+            "appUserModelId": "com.squirrel.casscroute.exe",
+            "upgradeCode": "976abc71-3d26-4599-a367-8b6f150297ca"
+          },
+          "ui": {
+            "images": {
+              "exclamationIcon": "IMG/CassCroute32.ico",
+              "infoIcon": "IMG/CassCroute32.ico",
+              "newIcon": "IMG/CassCroute16.ico",
+              "upIcon": "IMG/CassCroute16.ico",
+              "background": "IMG/background.bmp",
+              "banner": "IMG/banner.bmp"
+            }
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
+          "name": "@electron-forge/maker-dmg",
           "platforms": [
             "darwin"
           ]
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "options": {
+              "icon": "IMG/CassCroute.png"
+            }
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "config": {
+            "options": {
+              "icon": "IMG/CassCroute.png"
+            }
+          }
         }
       ],
       "publishers": [
@@ -70,18 +99,25 @@
     }
   },
   "dependencies": {
+    "@cliqz/adblocker-electron": "^1.3.1",
     "@types/electron-devtools-installer": "^2.0.2",
+    "@types/node": "^18.11.0",
+    "electron": "^21.1.1",
     "electron-compile": "^3.3.6",
     "electron-squirrel-startup": "^1.0.0",
-    "tslib": "^1.4.0"
+    "ts-node": "^10.9.1",
+    "tslib": "^1.4.0",
+    "typescript": "^2.2.2"
   },
   "devDependencies": {
     "@check-light-or-dark/image": "^1.0.5",
     "@cliqz/adblocker-electron": "^1.3.1",
     "@electron-forge/cli": "^6.0.0-beta.67",
     "@electron-forge/maker-deb": "^6.0.0-beta.67",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.67",
     "@electron-forge/maker-rpm": "^6.0.0-beta.67",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
+    "@electron-forge/maker-wix": "^6.0.0-beta.67",
     "@electron-forge/maker-zip": "^6.0.0-beta.67",
     "@electron-forge/publisher-github": "^6.0.0-beta.67",
     "@octokit/request": "^6.2.2",
@@ -90,6 +126,7 @@
     "cross-fetch": "^3.1.5",
     "electron": "^21.1.1",
     "electron-forge": "^5.2.4",
+    "exe-icon-extractor": "^1.0.8",
     "fs": "^0.0.1-security",
     "jquery": "^3.6.1",
     "path": "^0.12.7",
