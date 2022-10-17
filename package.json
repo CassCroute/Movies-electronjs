@@ -15,11 +15,11 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "IMG/CassCroute.ico"
+        "icon": "IMG\\CassCroute.ico"
       },
       "make_targets": {
         "win32": [
-          "wix"
+          "squirrel"
         ],
         "darwin": [
           "dmg"
@@ -31,28 +31,12 @@
       },
       "makers": [
         {
-          "name": "@electron-forge/maker-wix",
+          "name": "@electron-forge/maker-squirrel",
           "config": {
-            "language": "1036",
-            "manufacturer": "CassCoute Team",
-            "arch": "x64",
-            "loadingGif": "IMG/CassCroute.gif",
-            "setupIcon": "IMG/CassCroute.ico",
-            "shortName": "CassCroute",
-            "shortcutFolderName": "CassCroute",
-            "shortcutName": "CassCroute",
-            "appUserModelId": "com.squirrel.casscroute.exe",
-            "upgradeCode": "976abc71-3d26-4599-a367-8b6f150297ca"
-          },
-          "ui": {
-            "images": {
-              "exclamationIcon": "IMG/CassCroute32.ico",
-              "infoIcon": "IMG/CassCroute32.ico",
-              "newIcon": "IMG/CassCroute16.ico",
-              "upIcon": "IMG/CassCroute16.ico",
-              "background": "IMG/background.bmp",
-              "banner": "IMG/banner.bmp"
-            }
+            "authors": "CassCroute Team",
+            "name": "CassCroute",
+            "setupIcon": "IMG\\CassCroute.ico",
+            "iconUrl": "https://cdn.discordapp.com/attachments/1023556056250593290/1031439523466465330/CassCroute.ico"
           }
         },
         {
