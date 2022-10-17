@@ -16,7 +16,8 @@
     "forge": {
       "packagerConfig": {
         "icon": "IMG\\CassCroute.ico",
-        "name": "CassCroute"
+        "name": "CassCroute",
+        "executableName": "CassCroute"
       },
       "make_targets": {
         "win32": [
@@ -52,8 +53,7 @@
           "name": "@electron-forge/maker-deb",
           "config": {
             "options": {
-              "icon": "IMG/CassCroute.png",
-              "executableName": "CassCroute"
+              "icon": "IMG/CassCroute.png"
             }
           }
         },
@@ -61,8 +61,7 @@
           "name": "@electron-forge/maker-rpm",
           "config": {
             "options": {
-              "icon": "IMG/CassCroute.png",
-              "executableName": "CassCroute"
+              "icon": "IMG/CassCroute.png"
             }
           }
         }
