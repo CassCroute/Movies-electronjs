@@ -1,5 +1,5 @@
 {
-  "name": "casscroute",
+  "name": "CassCroute",
   "version": "0.18.0",
   "description": "Logiciel pour voir des films.",
   "main": "JS/index.js",
