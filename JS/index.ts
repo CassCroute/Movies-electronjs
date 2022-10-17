@@ -1,14 +1,71 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 
+if(require('electron-squirrel-startup')) app.quit();
+
 const ipc = ipcMain;
 
 import fs from 'fs'; // used for caching
 
 import path from 'path';
 
+import cp from 'child_process';
+
 import { ElectronBlocker } from '@cliqz/adblocker-electron';
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
+var handleSquirrelEvent = function() {
+  if (process.platform != 'win32') {
+     return false;
+  }
+
+  function executeSquirrelCommand(args: any, done: any) {
+     var updateDotExe = path.resolve(path.dirname(process.execPath), 
+        '..', 'update.exe');
+     var child = cp.spawn(updateDotExe, args, { detached: true });
+
+     child.on('close', function(code) {
+        done();
+     });
+  };
+
+  function install(done: any) {
+     var target = path.basename(process.execPath);
+     executeSquirrelCommand(["--createShortcut", target], done);
+  };
+
+  function uninstall(done: any) {
+     var target = path.basename(process.execPath);
+     executeSquirrelCommand(["--removeShortcut", target], done);
+  };
+
+  var squirrelEvent = process.argv[1];
+
+  switch (squirrelEvent) {
+
+     case '--squirrel-install':
+        install(app.quit);
+        return true;
+
+     case '--squirrel-updated':
+        install(app.quit);
+        return true;
+
+     case '--squirrel-obsolete':
+        app.quit();
+        return true;
+
+     case '--squirrel-uninstall':
+        uninstall(app.quit);
+        return true;
+  }
+
+  return false;
+};
+
+if (handleSquirrelEvent()) {
+  app.quit();
+}
 
 async function createWindow() {
     const win = new BrowserWindow({
