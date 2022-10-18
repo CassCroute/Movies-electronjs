@@ -15,7 +15,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "IMG\\CassCroute.ico",
+        "icon": "./IMG/CassCroute",
         "name": "CassCroute",
         "executableName": "CassCroute"
       },
