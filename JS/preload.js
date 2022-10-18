@@ -6,7 +6,7 @@ const ipc = ipcRenderer
 const fs = require('fs');
 const path = require('path');
 
-const userDataPath = process.env.APPDATA;
+var userDataPath = process.env.APPDATA;
 
 if (process.platform == 'darwin') {
     userDataPath = process.env.HOME + '/Library/Preferences/'
