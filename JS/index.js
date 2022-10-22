@@ -77,6 +77,9 @@ function createWindow() {
                 contextIsolation: false
             }
         });
+        if (process.platform == 'darwin') {
+            win.setWindowButtonVisibility(false);
+        }
         const blocker = adblocker_electron_1.ElectronBlocker.parse(fs_1.default.readFileSync(path_1.default.resolve(__dirname, '../DATA/easylist.txt'), 'utf-8'));
         blocker.enableBlockingInSession(win.webContents.session);
         blocker.on('request-blocked', (request) => {

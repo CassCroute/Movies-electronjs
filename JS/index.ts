@@ -80,6 +80,10 @@ async function createWindow() {
           contextIsolation: false
         }
   });
+  
+  if (process.platform == 'darwin') {
+    win.setWindowButtonVisibility(false);
+  }
 
   const blocker = ElectronBlocker.parse(fs.readFileSync(path.resolve(__dirname, '../DATA/easylist.txt'), 'utf-8')); 
 

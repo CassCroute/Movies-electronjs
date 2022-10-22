@@ -47,7 +47,13 @@
           "name": "@electron-forge/maker-dmg",
           "platforms": [
             "darwin"
-          ]
+          ],
+          "config": {
+            "title": "CassCroute",
+            "background": "./IMG/installBackground.png",
+            "format": "ULFO",
+            "icon": "IMG/DMG_CassCroute.icns"
+          }
         },
         {
           "name": "@electron-forge/maker-deb",
