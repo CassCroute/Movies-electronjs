@@ -13,8 +13,9 @@ function InitAccueil()
                 var titreOriginalFilm = data['result'][i]['originalTitle'];
                 var titreFilm = data['result'][i]['title'];
                 var lienFilm = data['result'][i]['link'];
+                var dateSortie = data['result'][i]['dateSortie'];
 
-                getMoviePosterAccueil(titreOriginalFilm, titreFilm).then(function(returndata) {
+                getMoviePosterAccueil(titreOriginalFilm, titreFilm, dateSortie).then(function(returndata) {
                     var img = returndata['poster'];
                     var imgObj = new Image();
                     imgObj.crossOrigin = "Anonymous";
@@ -36,12 +37,9 @@ function InitAccueil()
     console.log(afficheTitrePosterLien);
 }
 
-function getMoviePosterAccueil(titreOriginalFilm, titreFilm){
-    return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
-        var indice = 0;
-        if(dataMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
-        if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-        var poster = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][indice]['poster_path'];
+function getMoviePosterAccueil(titreOriginalFilm, titreFilm, dateSortie){
+    return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&primary_release_year=' + dateSortie + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
+        var poster = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][0]['poster_path'];
         return {
             poster: poster
         }

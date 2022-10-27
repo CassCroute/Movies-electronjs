@@ -224,7 +224,14 @@ if (titreFilm1 !== null) {
                         lienFilm = dataAPIcc[i]['link'];
                         id = dataAPIcc[i]['id'];
 
-                        var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[i]['poster_path'];
+                        var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[0]['poster_path'];
+
+                        var child = dataAPImdb[i];
+
+                        if (child !== null) {
+                            var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[i]['poster_path'];
+                        } 
+
                         var imgObj = new Image();
                         imgObj.crossOrigin = "Anonymous";
                         imgObj.src = img + "?not-from-cache-please-stp";
@@ -240,7 +247,7 @@ if (titreFilm1 !== null) {
                     }
                     if ( i == 21 ) clearInterval(intervalId);
                     i++;
-                },100);
+                },150);
             });
         });
     }

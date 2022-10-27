@@ -42,24 +42,18 @@ const categorieSerie = {
       "37": "Western"     
 }
 
-function getMovieInfo(titreOriginalFilm, titreFilm, lienFilm){
-    return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
-        var indice = 0;
-        if(dataMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
-        if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-        var poster = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][indice]['poster_path'];
+function getMovieInfo(titreOriginalFilm, titreFilm, lienFilm, dateSortie){
+    return $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&primary_release_year=' + dateSortie + '&query=' + titreOriginalFilm + '&language=fr-FR').then(function(dataMovie){
+        var poster = 'https://image.tmdb.org/t/p/original' + dataMovie['results'][0]['poster_path'];
         return {
             poster: poster
         }
     });
 }
 
-function poster(film, titreFilm, count) {
-    $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + film + '&language=fr-FR', function(data) {
-          var indice = 0;
-          if(data['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;      
-          if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-          var img = 'https://image.tmdb.org/t/p/original' + data['results'][indice]['poster_path'];
+function poster(film, titreFilm, dateSortie, count) {
+    $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&primary_release_year=' + dateSortie + '&query=' + film + '&language=fr-FR', function(data) {
+          var img = 'https://image.tmdb.org/t/p/original' + data['results'][0]['poster_path'];
           id='#' + count;
           $(id).attr('src',img);
     });
@@ -79,15 +73,16 @@ $('#txt-search').keyup(function(){
                 var titreOriginalFilm = data['result'][i]['originalTitle'];
                 var titreFilm = data['result'][i]['title'];
                 var idVideo = data['result'][i]['id'];
+                var dateSortie = data['result'][i]['dateSortie'];
                 output += '<div class="col-md-6 well">';
                 output += `<div class="infoMedia ${idVideo}" id="infoMedia${i}")'>`; 
-                output += '<br><div ><img class="img-responsive" id="' + i + '" src="" alt="'+ titreFilm +'" height="55px" /></div>';
+                output += `<br><div ><img class="img-responsive" id="${i}" src="" alt="${titreFilm}" height="55px" /></div>`;
                 output += '<div class="titreDescription">';
                 output += '<h5>' + titreFilm + '</h5>';
                 output += '</div>';
                 output += '</div>';
                 output += '</div>';
-                poster(titreOriginalFilm, titreFilm, i)
+                poster(titreOriginalFilm, titreFilm, dateSortie, i)
                 if(i%2 != 0){
                   output += '</div><div class="row">'
                 }

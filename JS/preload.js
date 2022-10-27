@@ -26,12 +26,10 @@ $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCrou
             {
                 var titreOriginalFilm = dataAPICassCroute['result'][i]['originalTitle'];
                 var titreFilm = dataAPICassCroute['result'][i]['title'];
-                $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataDBMovie) {
+                var dateSortie = dataAPICassCroute['result'][i]['dateSortie'];
+                $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&primary_release_year=' + dateSortie + '&query=' + titreOriginalFilm + '&language=fr-FR', function(dataDBMovie) {
                     $('#etat').html('Chargement des infos<br> sur les média...');
-                    var indice = 0;
-                    if(dataDBMovie['results'][0]['media_type'] == 'person' || titreFilm == 'Aladdin disney' || titreFilm == 'Hulk') indice = 1;
-                    if(titreFilm == 'Vendredi 13 (2009)') indice = 2;
-                    var dataDBMovie2 = dataDBMovie['results'][indice];
+                    var dataDBMovie2 = dataDBMovie['results'][0];
                     listeMovieDB.push(dataDBMovie2);
                     if (listeMovieDB.length == 21) {
                         data = JSON.stringify(listeMovieDB);
@@ -43,6 +41,6 @@ $.post(apiAdresse + 'getRandomNumber', { number: 21 }, function( dataAPICassCrou
             }
         if ( listeMovieDB.length == 21 ) clearInterval(intervalId);
         i++;
-    },300); 
+    },600); 
 
 });
