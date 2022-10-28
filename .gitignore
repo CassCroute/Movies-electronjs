@@ -3,3 +3,4 @@ Dist/
 .release/
 .idea
 out/
+.vscode/
