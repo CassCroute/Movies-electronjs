@@ -179,6 +179,8 @@ if (titreFilm1 !== null) {
         fs.readFile( pathAPIcc, 'utf8', function (err,data) {
             var dataAPIcc = JSON.parse(data);
             var titreFilm = dataAPIcc[0]['title'];
+            var titreFilmOriginal = dataAPIcc[0]['originalTitle'];
+            var dateSortie = dataAPIcc[0]['dateSortie'];
             var id = dataAPIcc[0]['id'];
             $('.title').addClass(id.toString());
             var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
@@ -213,15 +215,16 @@ if (titreFilm1 !== null) {
                 $('#pageCentre').css('-moz-background-size', 'cover');
                 $('#pageCentre').css('-o-background-size', 'cover');
                 $('#pageCentre').css('background-size', 'cover');
-                $('body').css('background-color', '');
+                $('#pageDeGarde input').attr("onclick", `videoBA("${titreFilmOriginal}", "${dateSortie}"); event.stopPropagation();`);
                 getImageLightness(imgObj.src);
                 var i = 0;
                 var intervalId = setInterval(function () {
                     if ( i >= 1 && i <= 20)
                     {
-                        titreOriginalFilm = dataAPIcc[i]['originalTitle'];
+                        titreFilmOriginal = dataAPIcc[i]['originalTitle'];
                         titreFilm = dataAPIcc[i]['title'];
                         lienFilm = dataAPIcc[i]['link'];
+                        dateSortie = dataAPIcc[i]['dateSortie'];
                         id = dataAPIcc[i]['id'];
 
                         var img = 'https://image.tmdb.org/t/p/original' + dataAPImdb[0]['poster_path'];
@@ -243,11 +246,25 @@ if (titreFilm1 !== null) {
                         $('#titreFilm' + i).css('background-size', 'cover');
                         $('#titreFilm' + i + ' h3').html(titreFilm);
                         $('#titreFilm' + i).addClass(id.toString());
-
+                        $('#titreFilm' + i + ' input').attr("onclick", `videoBA("${titreFilmOriginal}", "${dateSortie}"); event.stopPropagation();`);
                     }
                     if ( i == 21 ) clearInterval(intervalId);
                     i++;
                 },150);
+            });
+        });
+    }
+    function videoBA(film, dateSortie) {
+        modal.style.display = "block";
+        $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=' + API_KEY + '&primary_release_year=' + dateSortie + '&query=' + film + '&language=fr-FR', function(dataBA) {
+            var idDBM = dataBA['results'][0]['id'];
+            $.getJSON(`https://api.themoviedb.org/3/movie/${idDBM}/videos?api_key=${API_KEY}&include_video_language=fr-FR`, function(dataTrailer) {
+                if (dataTrailer['result'] !== null) {
+                    var urlTrailer = `https://www.youtube.com/embed/${dataTrailer['results'][0]['key']}?autoplay=1&controls=0`;
+                    $('.videoBA').replaceWith('<object data="' + urlTrailer + '" class="videoBA"></object>');
+                } else {
+                    modal.style.display = "none";
+                }
             });
         });
     }
