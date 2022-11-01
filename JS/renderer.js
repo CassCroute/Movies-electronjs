@@ -44,7 +44,7 @@ closeButton.addEventListener('click', ()=>{
     ipc.send('closeApp')
 })
 
-const pageDeGarde = document.getElementById('pageDeGarde');
+const pageDeGarde = document.getElementById('Film');
 const titreFilm1 = document.getElementById('titreFilm1');
 const titreFilm2 = document.getElementById('titreFilm2');
 const titreFilm3 = document.getElementById('titreFilm3');
@@ -65,111 +65,177 @@ const titreFilm17 = document.getElementById('titreFilm17');
 const titreFilm18 = document.getElementById('titreFilm18');
 const titreFilm19 = document.getElementById('titreFilm19');
 const titreFilm20 = document.getElementById('titreFilm20');
+var temp = [];
 if (titreFilm1 !== null) {
 
     pageDeGarde.addEventListener('click', ()=>{
-        var idVideo = pageDeGarde.getAttribute('class').split(' ')[1]
-        ipc.send('titreCouverture', { idVideo: idVideo} )
+        var idVideo = pageDeGarde.getAttribute('class');
+        ipc.send('titreCouverture', { idVideo: idVideo} );
     })
 
-    titreFilm1.addEventListener('click', ()=>{
-        var idVideo = titreFilm1.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm1', { idVideo: idVideo} )
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+    
+    async function changeInfoMovies(idVideo) {
+        var pathAPIcc = path.join(userDataPath, 'dataAPICassCroute.json');
+        fs.readFile( pathAPIcc, 'utf8', function (err,dataAPIcc) {
+            var dataAPIcc = JSON.parse(dataAPIcc);
+            temp = dataAPIcc[idVideo];
+            dataAPIcc[idVideo] = dataAPIcc[0];
+            dataAPIcc[0] = temp;
+            fs.writeFileSync(pathAPIcc, JSON.stringify(dataAPIcc));
+        });
+        await delay(100);
+        var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
+        fs.readFile( pathAPImdb, 'utf8', function (err,dataDBMovie) {
+            var dataAPImdb = JSON.parse(dataDBMovie);
+            temp = dataAPImdb[idVideo];
+            dataAPImdb[idVideo] = dataAPImdb[0];
+            dataAPImdb[0] = temp;
+            fs.writeFileSync(pathAPImdb, JSON.stringify(dataAPImdb));
+        });
+        await delay(100);
+    }
+
+    titreFilm1.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(1);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm2.addEventListener('click', ()=>{
-        var idVideo = titreFilm2.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm2', { idVideo: idVideo} )
+    titreFilm2.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(2);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm3.addEventListener('click', ()=>{
-        var idVideo = titreFilm3.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm3', { idVideo: idVideo} )
+    titreFilm3.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(3);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm4.addEventListener('click', ()=>{
-        var idVideo = titreFilm4.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm4', { idVideo: idVideo} )
+    titreFilm4.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(4);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm5.addEventListener('click', ()=>{
-        var idVideo = titreFilm5.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm5', { idVideo: idVideo} )
+    titreFilm5.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(5);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm6.addEventListener('click', ()=>{
-        var idVideo = titreFilm6.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm6', { idVideo: idVideo} )
+    titreFilm6.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(6);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm7.addEventListener('click', ()=>{
-        var idVideo = titreFilm7.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm7', { idVideo: idVideo} )
+    titreFilm7.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(7);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm8.addEventListener('click', ()=>{
-        var idVideo = titreFilm8.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm8', { idVideo: idVideo} )
+    titreFilm8.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(8);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm9.addEventListener('click', ()=>{
-        var idVideo = titreFilm9.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm9', { idVideo: idVideo} )
+    titreFilm9.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(9);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm10.addEventListener('click', ()=>{
-        var idVideo = titreFilm10.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm10', { idVideo: idVideo} )
+    titreFilm10.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(10);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm11.addEventListener('click', ()=>{
-        var idVideo = titreFilm11.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm11', { idVideo: idVideo} )
+    titreFilm11.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(11);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm12.addEventListener('click', ()=>{
-        var idVideo = titreFilm12.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm12', { idVideo: idVideo} )
+    titreFilm12.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(12);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm13.addEventListener('click', ()=>{
-        var idVideo = titreFilm13.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm13', { idVideo: idVideo} )
+    titreFilm13.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(13);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm14.addEventListener('click', ()=>{
-        var idVideo = titreFilm14.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm14', { idVideo: idVideo} )
+    titreFilm14.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(14);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm15.addEventListener('click', ()=>{
-        var idVideo = titreFilm15.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm15', { idVideo: idVideo} )
+    titreFilm15.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(15);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm16.addEventListener('click', ()=>{
-        var idVideo = titreFilm16.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm16', { idVideo: idVideo} )
+    titreFilm16.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(16);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm17.addEventListener('click', ()=>{
-        var idVideo = titreFilm17.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm17', { idVideo: idVideo} )
+    titreFilm17.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(17);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm18.addEventListener('click', ()=>{
-        var idVideo = titreFilm18.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm18', { idVideo: idVideo} )
+    titreFilm18.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(18);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm19.addEventListener('click', ()=>{
-        var idVideo = titreFilm19.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm19', { idVideo: idVideo} )
+    titreFilm19.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(19);
+        await delay(100);
+        InitAccueil();
     })
 
-    titreFilm20.addEventListener('click', ()=>{
-        var idVideo = titreFilm20.getAttribute('class').split(' ')[1]
-        ipc.send('titreFilm20', { idVideo: idVideo} )
+    titreFilm20.addEventListener('click', async ()=>{
+        $('body,html').animate({scrollTop: 0}, 500); 
+        changeInfoMovies(20);
+        await delay(100);
+        InitAccueil();
     })
 
     $(window).on( "load", InitAccueil() );
@@ -182,7 +248,8 @@ if (titreFilm1 !== null) {
             var titreFilmOriginal = dataAPIcc[0]['originalTitle'];
             var dateSortie = dataAPIcc[0]['dateSortie'];
             var id = dataAPIcc[0]['id'];
-            $('.title').addClass(id.toString());
+            var currentClass = $('#Film').attr('class');
+            $('#Film').removeClass(currentClass).addClass(id.toString());
             var pathAPImdb = path.join(userDataPath, 'dataAPIDBMovie.json');
             fs.readFile( pathAPImdb, 'utf8', function (err,dataDBMovie) {
                 var dataAPImdb = JSON.parse(dataDBMovie);
@@ -215,7 +282,7 @@ if (titreFilm1 !== null) {
                 $('#pageCentre').css('-moz-background-size', 'cover');
                 $('#pageCentre').css('-o-background-size', 'cover');
                 $('#pageCentre').css('background-size', 'cover');
-                $('#pageDeGarde input').attr("onclick", `videoBA("${titreFilmOriginal}", "${dateSortie}"); event.stopPropagation();`);
+                $('#BA').attr("onclick", `videoBA("${titreFilmOriginal}", "${dateSortie}")`);
                 getImageLightness(imgObj.src);
                 var i = 0;
                 var intervalId = setInterval(function () {
@@ -245,8 +312,6 @@ if (titreFilm1 !== null) {
                         $('#titreFilm' + i).css('-o-background-size', 'cover');
                         $('#titreFilm' + i).css('background-size', 'cover');
                         $('#titreFilm' + i + ' h3').html(titreFilm);
-                        $('#titreFilm' + i).addClass(id.toString());
-                        $('#titreFilm' + i + ' input').attr("onclick", `videoBA("${titreFilmOriginal}", "${dateSortie}"); event.stopPropagation();`);
                     }
                     if ( i == 21 ) clearInterval(intervalId);
                     i++;

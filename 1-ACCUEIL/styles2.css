@@ -6,6 +6,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+html { 
+  scroll-behavior: smooth; 
+}
+
 body {
     background-color: #0F0E17;
 }
@@ -357,9 +361,54 @@ nav {
   font-size: calc(100vw / 65);
 }
 
-input {
-  color: #9f9d8e; 
-  background: #202020;
+#orgaButton {
+  margin-top: 20px;;
+  display: flex;
+  flex-direction: row;
+}
+#BA {
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 15px;
+  color: white;
+  
+  width: 240px;
+  height: 35px;
+
+  display: flex;
+
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
+  background: #1d4c6b;
+  border-radius: 10px;
+  border-style: none;
+  user-select: none;
+  z-index: 5;
+}
+
+#Film {
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 15px;
+  color: white;
+  
+  width: 240px;
+  height: 35px;
+
+  margin-left: 20px;
+
+  display: flex;
+
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
+  background: #77280f;
+  border-radius: 10px;
+  border-style: none;
+  user-select: none;
   z-index: 5;
 }
 
